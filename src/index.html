@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#18383e">
+  <meta name="description" content="Смета на создание сайта перевозок: полная стоимость, результат, порядок работы и расходы после запуска простыми словами.">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+  <title>Сколько стоит сайт · Смета на сайт перевозок</title>
+</head>
+<body>
+<a class="skip-link" href="#main">К содержанию</a>
+<div class="app">
+  <header class="topbar">
+    <a class="brand" href="#price" data-route="price" aria-label="Смета сайта перевозок. К общей стоимости">
+      <img src="./favicon.svg" width="34" height="34" alt="">
+      <span><strong>Сайт перевозок</strong><span>Предложение по разработке</span></span>
+    </a>
+    <a class="pdf-link" href="./smeta.pdf" download="Смета_сайт_перевозок_черновик.pdf" aria-label="Скачать смету в PDF">PDF <span aria-hidden="true">↓</span></a>
+  </header>
+
+  <div class="progress-area">
+    <div class="progress-meta"><span id="step-count">4 коротких шага</span><span>Черновик для обсуждения</span></div>
+    <nav class="navigation" aria-label="Разделы сметы">
+      <a id="tab-price" class="nav-item is-active" href="#price" data-tab="price"><span aria-hidden="true">1</span> Цена</a>
+      <a id="tab-result" class="nav-item" href="#result" data-tab="result"><span aria-hidden="true">2</span> Результат</a>
+      <a id="tab-start" class="nav-item" href="#start" data-tab="start"><span aria-hidden="true">3</span> Начало</a>
+      <a id="tab-later" class="nav-item" href="#later" data-tab="later"><span aria-hidden="true">4</span> Потом</a>
+    </nav>
+  </div>
+
+  <main id="main" tabindex="-1">
+    <section id="price" class="screen" aria-labelledby="heading-price">
+      <div class="screen-heading"><h1 id="heading-price" tabindex="-1">Сколько стоит сайт?</h1></div>
+      <div class="price-total">
+        <p>Всего за первый год</p>
+        <strong class="big-price">{{firstYearTotal}}</strong>
+        <p class="total-caption">Создание сайта + его работа 12 месяцев</p>
+      </div>
+      <div class="payment-list" aria-label="Когда и кому платить">
+        <div class="payment-row"><div><h2>Создание сайта</h2><p>До начала работы · мне</p></div><strong>{{development}}</strong></div>
+        <div class="payment-row"><div><h2>Адрес сайта на год</h2><p>При регистрации · сервису</p></div><strong>{{domainFirstYear}}</strong></div>
+        <div class="payment-row"><div><h2>Размещение на год</h2><p>Перед запуском · сервису</p></div><strong>{{hostingYear}}</strong></div>
+      </div>
+      <p class="plain-note">Реклама и новые задачи — отдельно, по желанию. Тарифы сервисов могут измениться.</p>
+      <button class="details-link" data-dialog="payment-details" aria-haspopup="dialog">Почему нужны адрес и размещение? <span aria-hidden="true">↗</span></button>
+    </section>
+
+    <section id="result" class="screen" aria-labelledby="heading-result">
+      <div class="screen-heading"><h1 id="heading-result" tabindex="-1">Что вы получите?</h1><p>Сайт для телефона и компьютера.</p></div>
+      <div class="result-list">
+        <article class="result-row"><span class="result-number" aria-hidden="true">01</span><div><h2>Пассажир выбирает поездку</h2><p>Маршруты, цены и расписание.</p></div></article>
+        <article class="result-row"><span class="result-number" aria-hidden="true">02</span><div><h2>Компания оставляет запрос</h2><p>Перевозки для организаций.</p></div></article>
+        <article class="result-row"><span class="result-number" aria-hidden="true">03</span><div><h2>Вы получаете заявки</h2><p>На поездку, звонок или перевозку для компании.</p></div></article>
+      </div>
+      <p class="callout">Поездку и окончательную цену подтверждает ваш диспетчер.</p>
+      <button class="details-link" data-dialog="package-details" aria-haspopup="dialog">Весь состав работ за {{development}} <span aria-hidden="true">↗</span></button>
+    </section>
+
+    <section id="start" class="screen" aria-labelledby="heading-start">
+      <div class="screen-heading"><h1 id="heading-start" tabindex="-1">Как начнём работу?</h1><p>От согласования до запуска.</p></div>
+      <ol class="timeline">
+        <li><span class="timeline-number" aria-hidden="true">1</span><div><h2>Согласуем объём и срок</h2><p>Фиксируем задачи и дату запуска.</p></div></li>
+        <li><span class="timeline-number" aria-hidden="true">2</span><div><h2>Вы подготовите материалы</h2><p>Тексты, фото, цены, расписание и готовые документы.</p></div></li>
+        <li><span class="timeline-number" aria-hidden="true">3</span><div><h2>Вы оплатите {{development}}</h2><p>Начинаю после полной оплаты, материалов и доступов.</p></div></li>
+        <li><span class="timeline-number" aria-hidden="true">4</span><div><h2>Проверим и запустим сайт</h2><p>Включены два раунда правок в рамках задания.</p></div></li>
+      </ol>
+      <button class="details-link" data-dialog="rules-details" aria-haspopup="dialog">О сроках, материалах и правках <span aria-hidden="true">↗</span></button>
+    </section>
+
+    <section id="later" class="screen" aria-labelledby="heading-later">
+      <div class="screen-heading"><h1 id="heading-later" tabindex="-1">Что платить потом?</h1><p>Разработка оплачивается один раз.</p></div>
+      <div class="renewal-card">
+        <p class="card-label">Со второго года · каждые 12 месяцев</p>
+        <div class="renewal-line"><h2>Адрес и размещение</h2><strong>{{renewalWithoutSupport}}</strong></div>
+        <p class="renewal-breakdown">{{domainRenewal}} за адрес + {{hostingYear}} за размещение</p>
+        <button class="support-option" data-dialog="support-details" aria-haspopup="dialog" aria-label="Поддержка по желанию: что входит"><span><strong>Поддержка — по желанию</strong><span>Дополнительно {{supportYear}} в год</span></span><span aria-hidden="true">↗</span></button>
+        <p class="renewal-total">Итого с поддержкой <strong>{{renewalWithSupport}} / год</strong></p>
+      </div>
+      <p class="included-note"><span aria-hidden="true">✓</span> Первый год поддержки уже включён.</p>
+      <button class="optional-button" data-dialog="extras-details" aria-haspopup="dialog"><span><strong>Реклама и другие услуги</strong><span>Только если понадобятся · посмотреть цены</span></span><span aria-hidden="true">↗</span></button>
+      <p class="tariff-note">Тарифы сервисов могут измениться.</p>
+    </section>
+  </main>
+
+  <footer class="step-footer">
+    <div class="footer-actions"><button id="back" class="back-button" aria-label="Предыдущий шаг"><span aria-hidden="true">←</span> Назад</button><a id="next" class="next-button" href="#result" data-route="result">Далее: что получите <span aria-hidden="true">→</span></a></div>
+    <p id="footer-hint">Посмотрите 4 шага — и всё будет понятно.</p>
+  </footer>
+</div>
+
+<dialog id="payment-details" class="details-dialog" aria-labelledby="payment-details-title">
+  <div class="dialog-header"><h2 id="payment-details-title">За что и когда платить</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
+  <div class="dialog-body">
+    <div class="detail-section"><h3>Всего {{firstYearTotal}} за первый год</h3><p>Это {{development}} за разработку и {{externalFirstYear}} за адрес и размещение сайта. Это разные платежи в свои сроки.</p></div>
+    <div class="detail-section"><h3>Создание сайта — {{development}}</h3><p>{{payments.rule}}</p><p>Все работы из согласованного пакета входят в эту сумму. Доплаты за разработку перед публикацией нет.</p></div>
+    <div class="detail-section"><h3>Адрес — {{domainFirstYear}} на первый год</h3><p>Как адрес у дома: по нему клиент найдёт ваш сайт. Например, название-компании.рф. Техническое название — «домен».</p><p>Сумма указана за свободный адрес .ru или .рф. Продление — {{domainRenewal}} в год по текущему тарифу.</p></div>
+    <div class="detail-section"><h3>Размещение — {{hostingYear}} на год</h3><p>Как помещение для сайта: его файлы хранятся на сервере, чтобы посетители могли открыть сайт в интернете. Эта услуга называется «хостинг».</p></div>
+    <div class="detail-section"><h3>С регистрацией помогу</h3><p>{{payments.services}}</p><p>{{payments.ownership}}</p></div>
+    <div class="detail-section"><h3>Почему тарифы могут отличаться</h3><p>{{payments.tariffNote}}</p>{{sources}}</div>
+    <button class="dialog-text-button" data-open-dialog="extras-details">Цены на рекламу и дополнительные услуги →</button>
+  </div>
+</dialog>
+
+<dialog id="package-details" class="details-dialog" aria-labelledby="package-details-title">
+  <div class="dialog-header"><h2 id="package-details-title">Весь сайт за {{development}}</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
+  <div class="dialog-body"><p class="dialog-intro">{{package.intro}}</p>{{packageItems}}<div class="detail-section"><h3>Что согласуем до начала</h3><p>{{package.scope}}</p></div><div class="detail-section"><h3>Как работает заявка</h3><p>{{package.operation}}</p></div><p class="callout">{{package.supportFirstYear}}</p></div>
+</dialog>
+
+<dialog id="rules-details" class="details-dialog" aria-labelledby="rules-details-title">
+  <div class="dialog-header"><h2 id="rules-details-title">Как организуем работу</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
+  <div class="dialog-body"><div class="detail-section"><h3>Что нужно от вас</h3><p>{{package.materials}}</p></div>{{rules}}</div>
+</dialog>
+
+<dialog id="support-details" class="details-dialog" aria-labelledby="support-details-title">
+  <div class="dialog-header"><h2 id="support-details-title">Поддержка после запуска</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
+  <div class="dialog-body"><p class="dialog-intro">{{support.firstYear}}</p><div class="detail-section"><h3>Что я проверяю и исправляю</h3>{{supportItems}}<p>{{support.scope}}</p></div><div class="detail-section"><h3>Если продлить поддержку</h3><p>{{support.renewal}}</p><p>Вместе с адресом и размещением это {{renewalWithSupport}} в год. Без моей поддержки — {{renewalWithoutSupport}} в год только за сервисы.</p></div><div class="detail-section"><h3>Новые пожелания — отдельно</h3><p>{{support.changes}}</p></div><div class="detail-section"><h3>Если это ошибка разработки</h3><p>Ошибки моей разработки, из-за которых результат не соответствует согласованному заданию, исправляются без доплаты.</p></div><p class="tariff-note">{{payments.tariffNote}}</p></div>
+</dialog>
+
+<dialog id="extras-details" class="details-dialog" aria-labelledby="extras-details-title">
+  <div class="dialog-header"><h2 id="extras-details-title">Услуги по желанию</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
+  <div class="dialog-body">
+    <p class="dialog-intro">В {{firstYearTotal}} за первый год эти услуги не входят. Сначала согласуем задачу и стоимость — затем начнём работу.</p>
+    <h3 class="group-title">Если нужна реклама в Яндексе</h3>
+    <div class="optional-total"><p>Сайт + запуск рекламы</p><strong>от {{siteAndAdsMinimum}}</strong><p>{{ads.siteTotalNote}}</p></div>
+    {{adsItems}}<p class="tariff-note">{{ads.minimumNote}}</p>
+    <h3 class="group-title">Если нужны изменения и новые функции</h3>
+    <p>{{extras.intro}}</p>{{extraItems}}<p class="tariff-note">{{extras.priceNote}}</p>
+  </div>
+</dialog>
+<noscript><p class="noscript-note">Все разделы и подробные условия показаны на этой странице. <a href="./smeta.pdf">Открыть PDF</a>.</p></noscript>
+</body>
+</html>
