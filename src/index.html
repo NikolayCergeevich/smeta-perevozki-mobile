@@ -35,16 +35,16 @@
     <section id="price" class="screen" aria-labelledby="heading-price">
       <div class="screen-heading"><h1 id="heading-price" tabindex="-1">Сколько стоит сайт?</h1></div>
       <div class="price-total">
-        <p>Ориентир на первый год</p>
+        <p>Всего за первый год · ориентир</p>
         <strong class="big-price">{{firstYearTotal}}</strong>
-        <p class="total-caption">Создание и поддержка сайта на год.<br>Адрес и хранение файлов тоже учтены.</p>
+        <p class="total-caption">Создание, поддержка, адрес и размещение.<br>Три платежа в разные сроки:</p>
       </div>
       <div class="payment-list" aria-label="Когда и кому платить">
-        <div class="payment-row"><h2>Сайт и поддержка</h2><strong>{{development}}</strong><p>До начала работ · мне</p><button class="small-details" data-dialog="package-details" aria-haspopup="dialog" aria-label="Подробнее: создание сайта и поддержка">Подробнее</button></div>
-        <div class="payment-row"><h2>Адрес сайта — домен</h2><strong>{{domainFirstYear}}</strong><p>Например: ваша-компания.рф</p><button class="small-details" data-dialog="domain-details" aria-haspopup="dialog" aria-label="Подробнее: адрес сайта, домен">Подробнее</button></div>
-        <div class="payment-row"><h2>Место для сайта</h2><strong>≈ {{hostingYear}}</strong><p>Хостинг · аренда на год</p><button class="small-details" data-dialog="hosting-details" aria-haspopup="dialog" aria-label="Подробнее: место для сайта, хостинг">Подробнее</button></div>
+        <div class="payment-row"><h2>Сайт + год поддержки</h2><strong>{{development}}</strong><p>Исполнителю<br>100% до начала работ</p><button class="small-details" data-dialog="package-details" aria-haspopup="dialog" aria-label="Подробнее: создание сайта и поддержка">Подробнее</button></div>
+        <div class="payment-row"><h2>Адрес сайта — домен</h2><strong>{{domainFirstYear}}</strong><p>Компании за адрес<br>При регистрации · за год</p><button class="small-details" data-dialog="domain-details" aria-haspopup="dialog" aria-label="Подробнее: адрес сайта, домен">Подробнее</button></div>
+        <div class="payment-row"><h2>Место для сайта</h2><strong>≈ {{hostingYear}}</strong><p>Компании за размещение<br>Перед запуском · за год</p><button class="small-details" data-dialog="hosting-details" aria-haspopup="dialog" aria-label="Подробнее: место для сайта, хостинг">Подробнее</button></div>
       </div>
-      <p class="plain-note">Реклама — отдельно, по желанию. Цены сервисов уточним до оплаты.</p>
+      <button class="optional-button" data-dialog="extras-details" aria-haspopup="dialog"><span><strong>Услуги по желанию</strong><span>Реклама и новые задачи</span></span><span class="more-label">Подробнее</span></button>
     </section>
 
     <section id="result" class="screen" aria-labelledby="heading-result">
@@ -64,7 +64,7 @@
         <li><span class="timeline-number" aria-hidden="true">1</span><div><h2>Согласуем объём и срок</h2><p>Фиксируем задачи и дату запуска.</p></div></li>
         <li><span class="timeline-number" aria-hidden="true">2</span><div><h2>Вы подготовите материалы</h2><p>Тексты, фото, цены, расписание и готовые документы.</p></div></li>
         <li><span class="timeline-number" aria-hidden="true">3</span><div><h2>Вы оплатите {{development}}</h2><p>Начинаю после полной оплаты, материалов и доступов.</p></div></li>
-        <li><span class="timeline-number" aria-hidden="true">4</span><div><h2>Проверим и запустим сайт</h2><p>Включены два раунда правок в рамках задания.</p></div></li>
+        <li><span class="timeline-number" aria-hidden="true">4</span><div><h2>Проверим и запустим сайт</h2><p>Оплатите размещение на год.<br>Проверим сайт и заявки.</p></div></li>
       </ol>
       <button class="details-link" data-dialog="rules-details" aria-haspopup="dialog"><span>Порядок работы<br><small>Сроки, материалы и правки</small></span><span class="more-label">Подробнее</span></button>
     </section>
@@ -72,12 +72,11 @@
     <section id="later" class="screen" aria-labelledby="heading-later">
       <div class="screen-heading"><h1 id="heading-later" tabindex="-1">Что платить потом?</h1><p>Со второго года — один из двух вариантов.</p></div>
       <div class="renewal-options" aria-label="Два варианта годовых расходов">
-        <article class="renewal-choice"><div class="choice-heading"><h2>Без поддержки</h2><strong>{{renewalWithoutSupport}} <small>/ год</small></strong></div><p class="choice-formula">Домен {{domainRenewal}} + хостинг ≈ {{hostingYear}}</p><div class="choice-footer"><p>Только адрес и место<br>для сайта.</p><button class="small-details" data-dialog="renewal-details" aria-haspopup="dialog" aria-label="Подробнее: ежегодные расходы без поддержки">Подробнее</button></div></article>
-        <article class="renewal-choice with-support"><div class="choice-heading"><h2>С поддержкой</h2><strong>{{renewalWithSupport}} <small>/ год</small></strong></div><p class="choice-formula">{{renewalWithoutSupport}} сервисам + {{supportYear}} мне</p><div class="choice-footer"><p>Те же сервисы + мои<br>проверки и исправления.</p><button class="small-details" data-dialog="support-details" aria-haspopup="dialog" aria-label="Подробнее: ежегодные расходы с поддержкой">Подробнее</button></div></article>
+        <article class="renewal-choice"><div class="choice-heading"><h2>Без поддержки</h2><strong>≈ {{renewalWithoutSupport}} <small>/ год</small></strong></div><p class="choice-formula">{{domainRenewal}} за адрес + ≈ {{hostingYear}} за размещение</p><div class="choice-footer"><p>Оплата компаниям.<br>Создание уже оплачено.</p><button class="small-details" data-dialog="renewal-details" aria-haspopup="dialog" aria-label="Подробнее: ежегодные расходы без поддержки">Подробнее</button></div></article>
+        <article class="renewal-choice with-support"><div class="choice-heading"><h2>С поддержкой</h2><strong>≈ {{renewalWithSupport}} <small>/ год</small></strong></div><p class="choice-formula">≈ {{renewalWithoutSupport}} компаниям + {{supportYear}} исполнителю</p><div class="choice-footer"><p>Те же платежи + проверки<br>и исправления сайта.</p><button class="small-details" data-dialog="support-details" aria-haspopup="dialog" aria-label="Подробнее: ежегодные расходы с поддержкой">Подробнее</button></div></article>
       </div>
-      <p class="included-note"><span aria-hidden="true">✓</span> Первый год поддержки уже включён.</p>
-      <button class="optional-button" data-dialog="extras-details" aria-haspopup="dialog"><span><strong>Реклама и другие услуги</strong><span>Только если понадобятся</span></span><span class="more-label">Подробнее</span></button>
-      <p class="tariff-note">Оба варианта — ориентир. Это не два платежа.</p>
+      <p class="included-note"><span aria-hidden="true">✓</span> Год поддержки включён с даты запуска.</p>
+      <p class="tariff-note">Адрес и размещение — в свои даты продления. Выбираете один вариант расходов.</p>
     </section>
   </main>
 
@@ -90,22 +89,20 @@
 <dialog id="domain-details" class="details-dialog" aria-labelledby="domain-details-title">
   <div class="dialog-header"><h2 id="domain-details-title">Адрес сайта — домен</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
   <div class="dialog-body">
-    <p class="example-box"><strong>Например: ваша-компания.рф</strong><br>Такой адрес можно написать на визитке или отправить пассажиру. Он введёт его в браузере и откроет ваш сайт.</p>
-    <div class="detail-section"><h3>За что платите</h3><p>За право пользоваться выбранным свободным адресом в интернете. Этот адрес называется «домен». Пример выше — иллюстрация; свободный адрес выберем вместе.</p></div>
-    <div class="detail-section"><h3>Сколько и кому</h3><p><strong>{{domainFirstYear}}</strong> за первый год. Затем — <strong>{{domainRenewal}} в год</strong> по тарифу, заложенному в смету. Платёж компании, которая регистрирует адрес, при регистрации и каждом продлении.</p></div>
-    <div class="detail-section"><h3>Самостоятельно разбираться не нужно</h3><p>Помогу выбрать и оформить адрес на вас. Перед оплатой проверим стоимость; покупка уже занятого адреса рассчитывается отдельно.</p></div>
-    <button class="dialog-text-button" data-open-dialog="payment-details"><span>Общий порядок оплаты</span><span class="more-label">Подробнее</span></button>
+    <p class="example-box"><strong>{{domainFirstYear}} за первый год.</strong><br>Оплачиваете при оформлении адреса компании, которая его регистрирует. Этот платёж уже включён в итог {{firstYearTotal}}.</p>
+    <div class="detail-section"><h3>Например: ваша-компания.рф</h3><p>Такой адрес можно написать на визитке или отправить пассажиру. По нему он откроет ваш сайт. Вы платите за право пользоваться этим адресом — доменом.</p><p>Это пример. Свободный адрес выберем вместе; цена в смете — за .ru или .рф. Уже занятый адрес может стоить иначе.</p></div>
+    <div class="detail-section"><h3>Что платить через год</h3><p>Продление — <strong>{{domainRenewal}} за следующие 12 месяцев</strong> по заложенному тарифу. Платёж той же компании к дате продления адреса.</p></div>
+    <div class="detail-section"><h3>Владелец адреса — вы</h3><p>Помогу выбрать адрес, зарегистрироваться и оплатить. Платёж идёт компании напрямую либо с моей помощью; цену проверим до оплаты.</p>{{sources}}</div>
   </div>
 </dialog>
 
 <dialog id="hosting-details" class="details-dialog" aria-labelledby="hosting-details-title">
   <div class="dialog-header"><h2 id="hosting-details-title">Место для сайта — хостинг</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
   <div class="dialog-body">
-    <p class="example-box"><strong>Адрес дома и аренда помещения — разные вещи.</strong><br>Домен — адрес вашего сайта. Хостинг — место, где хранятся его страницы, фотографии и формы заявок.</p>
-    <div class="detail-section"><h3>Как это выглядит для пассажира</h3><p>Человек открывает сайт и видит расписание и фотографии. Они загружаются с сервера — компьютера компании, у которой мы арендуем место для сайта. Ваш компьютер можно выключить.</p></div>
-    <div class="detail-section"><h3>Сколько и кому</h3><p><strong>Около {{hostingYear}} за 12 месяцев.</strong> Это бюджет для сметы. Подходящий тариф и точную цену согласуем до оплаты.</p><p>Платёж компании, которая размещает сайт: перед запуском, затем за следующие 12 месяцев. Оформить и оплатить помогу.</p></div>
-    <div class="detail-section"><h3>Чем отличается от моей поддержки</h3><p>Хостинг — аренда места для файлов. Поддержка — мои проверки сайта, резервных копий и технические исправления в согласованном объёме.</p></div>
-    <button class="dialog-text-button" data-open-dialog="payment-details"><span>Общий порядок оплаты</span><span class="more-label">Подробнее</span></button>
+    <p class="example-box"><strong>Около {{hostingYear}} за 12 месяцев.</strong><br>Оплачиваете перед запуском компании, которая размещает сайт. Этот расход уже включён в итог {{firstYearTotal}}.</p>
+    <div class="detail-section"><h3>Как аренда места для сайта</h3><p>Здесь хранятся страницы, фотографии и формы заявок. Компания предоставляет постоянно работающий компьютер — сервер. Пассажиры открывают сайт, даже когда ваш компьютер выключен. Эта услуга называется «хостинг».</p></div>
+    <div class="detail-section"><h3>Что платить через год</h3><p>Снова оплачиваете размещение на 12 месяцев — той же компании к дате продления. В смете заложено около {{hostingYear}} в год; точный тариф согласуем до оплаты.</p></div>
+    <div class="detail-section"><h3>Помогу оформить и оплатить</h3><p>Аккаунт оформляется на вас. Оплата компании напрямую либо с моей помощью.</p><p>Эти деньги — за размещение. Моя поддержка — отдельная работа: проверки сайта и технические исправления. Первые 12 месяцев поддержки с запуска включены в {{development}} за создание сайта.</p></div>
   </div>
 </dialog>
 
@@ -113,29 +110,21 @@
   <div class="dialog-header"><h2 id="renewal-details-title">Следующий год без поддержки</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
   <div class="dialog-body">
     <p class="example-box"><strong>Ориентир — {{renewalWithoutSupport}} за год.</strong><br>{{domainRenewal}} за сохранение адреса + около {{hostingYear}} за аренду места для сайта.</p>
-    <div class="detail-section"><h3>За что платите повторно</h3><p>За возможность пользоваться адресом сайта и хранить его файлы на сервере ещё 12 месяцев. Платежи идут сервисам в даты продления.</p></div>
-    <div class="detail-section"><h3>Что с самим сайтом</h3><p>Оплачивать создание сайта второй раз не нужно. Моя поддержка в этот вариант не входит. Ошибки разработки, нарушающие согласованное задание, исправляю без доплаты.</p></div>
-    <div class="detail-section"><h3>Если нужна моя поддержка</h3><p>Ещё {{supportYear}} за мои проверки и технические исправления. Тогда <strong>общая сумма — {{renewalWithSupport}} за год</strong>, включая сервисы.</p></div>
-    <button class="dialog-text-button" data-open-dialog="support-details"><span>Состав поддержки</span><span class="more-label">Подробнее</span></button>
-  </div>
-</dialog>
-
-<dialog id="payment-details" class="details-dialog" aria-labelledby="payment-details-title">
-  <div class="dialog-header"><h2 id="payment-details-title">За что и когда платить</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
-  <div class="dialog-body">
-    <div class="detail-section"><h3>Ориентир — {{firstYearTotal}} за первый год</h3><p>Это {{development}} за создание и первый год поддержки плюс примерно {{externalFirstYear}} за адрес и место для сайта. Это разные платежи в свои сроки.</p></div>
-    <div class="detail-section"><h3>Создание сайта — {{development}}</h3><p>{{payments.rule}}</p><p>Все работы из согласованного пакета входят в эту сумму. Доплаты за разработку перед публикацией нет.</p></div>
-    <div class="detail-section"><h3>Адрес — {{domainFirstYear}} на первый год</h3><p>Как адрес у дома: по нему клиент найдёт ваш сайт. Например, название-компании.рф. Техническое название — «домен».</p><p>Сумма указана за свободный адрес .ru или .рф. Продление — {{domainRenewal}} в год по текущему тарифу.</p></div>
-    <div class="detail-section"><h3>Хостинг — около {{hostingYear}} на год</h3><p>Как аренда помещения: здесь хранятся страницы, фото и формы сайта. Эта услуга называется «хостинг». Тариф согласуем до оплаты.</p></div>
-    <div class="detail-section"><h3>С регистрацией помогу</h3><p>{{payments.services}}</p><p>{{payments.ownership}}</p></div>
-    <div class="detail-section"><h3>Почему тарифы могут отличаться</h3><p>{{payments.tariffNote}}</p>{{sources}}</div>
-    <button class="dialog-text-button" data-open-dialog="extras-details"><span>Реклама и дополнительные услуги</span><span class="more-label">Подробнее</span></button>
+    <div class="detail-section"><h3>Кому и когда платить</h3><p><strong>{{domainRenewal}} за адрес</strong> — компании регистрации к дате продления домена.</p><p><strong>Около {{hostingYear}} за размещение</strong> — компании размещения к дате продления хостинга.</p><p>Даты могут различаться. Оба платежа продлевают услуги ещё на 12 месяцев; тарифы проверим до оплаты.</p></div>
+    <div class="detail-section"><h3>Что с самим сайтом</h3><p>Создание уже оплачено, повторно {{development}} платить не нужно. Без моей поддержки сайт остаётся у вас; текущие вопросы и новые задачи решаются отдельно.</p><p>Мои плановые проверки и обслуживание в этот вариант не входят. Ошибки разработки, нарушающие согласованное задание, исправляю без доплаты.</p></div>
   </div>
 </dialog>
 
 <dialog id="package-details" class="details-dialog" aria-labelledby="package-details-title">
-  <div class="dialog-header"><h2 id="package-details-title">Весь сайт за {{development}}</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
-  <div class="dialog-body"><p class="dialog-intro">{{package.intro}}</p><div class="detail-section"><h3>За что вы платите</h3><p>Я создаю страницы, размещаю ваши материалы, подключаю заявки, проверяю и запускаю сайт. Первые 12 месяцев поддержки уже включены.</p><p><strong>Когда платить:</strong> {{development}} полностью до начала работы. Перед публикацией доплаты за разработку нет.</p></div>{{packageItems}}<div class="detail-section"><h3>Что согласуем до начала</h3><p>{{package.scope}}</p></div><div class="detail-section"><h3>Как работает заявка</h3><p>{{package.operation}}</p></div><p class="callout">{{package.supportFirstYear}}</p></div>
+  <div class="dialog-header"><h2 id="package-details-title">Создание сайта и год поддержки</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
+  <div class="dialog-body">
+    <p class="example-box"><strong>{{development}} исполнителю до начала работ.</strong><br>Полная предоплата за создание сайта и 12 месяцев поддержки с даты запуска. За разработку перед публикацией доплаты нет.</p>
+    <div class="detail-section"><h3>Что делаю за эту сумму</h3><p>Создаю страницы, размещаю ваши материалы, подключаю заявки, проверяю и запускаю сайт. Создание оплачивается один раз.</p><p>Адрес и размещение оплачиваются компаниям отдельно — они уже учтены в общем итоге {{firstYearTotal}}.</p></div>
+    <div class="detail-section"><h3>Первый год поддержки уже включён</h3>{{supportItems}}<p>{{support.scope}}</p><p>{{support.changes}}</p></div>
+    {{packageItems}}
+    <div class="detail-section"><h3>Что согласуем до начала</h3><p>{{package.scope}}</p></div>
+    <div class="detail-section"><h3>Как работает заявка</h3><p>{{package.operation}}</p></div>
+  </div>
 </dialog>
 
 <dialog id="rules-details" class="details-dialog" aria-labelledby="rules-details-title">
@@ -145,13 +134,19 @@
 
 <dialog id="support-details" class="details-dialog" aria-labelledby="support-details-title">
   <div class="dialog-header"><h2 id="support-details-title">Поддержка после запуска</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
-  <div class="dialog-body"><p class="example-box"><strong>С поддержкой — ориентировочно {{renewalWithSupport}} за год.</strong><br>Из них {{renewalWithoutSupport}} за адрес и хостинг + {{supportYear}} за мою работу. Это полная сумма выбранного варианта.</p><p class="dialog-intro">{{support.firstYear}}</p><div class="detail-section"><h3>Что я проверяю и исправляю</h3>{{supportItems}}<p>{{support.scope}}</p></div><div class="detail-section"><h3>Если продлить поддержку</h3><p>{{support.renewal}}</p><p>За сервисы платите их поставщикам, за поддержку — мне. Оплачивать создание сайта повторно не нужно.</p></div><div class="detail-section"><h3>Новые пожелания — отдельно</h3><p>{{support.changes}}</p></div><div class="detail-section"><h3>Если это ошибка разработки</h3><p>Ошибки моей разработки, из-за которых результат не соответствует согласованному заданию, исправляются без доплаты.</p></div><p class="tariff-note">{{payments.tariffNote}}</p></div>
+  <div class="dialog-body">
+    <p class="example-box"><strong>Всего около {{renewalWithSupport}} за следующий год.</strong><br>Это уже включает около {{renewalWithoutSupport}} компаниям за адрес и размещение плюс {{supportYear}} исполнителю за поддержку.</p>
+    <div class="detail-section"><h3>Кому и когда платить</h3><p><strong>{{supportYear}} исполнителю</strong> — при продлении, до начала следующих 12 месяцев поддержки. Первый год с даты запуска уже оплачен в составе создания сайта.</p><p><strong>{{domainRenewal}} за адрес и около {{hostingYear}} за размещение</strong> — соответствующим компаниям к датам продления этих услуг. Даты могут различаться. Повторно платить за создание сайта не нужно.</p></div>
+    <div class="detail-section"><h3>Что я проверяю и исправляю</h3>{{supportItems}}<p>{{support.scope}}</p></div>
+    <div class="detail-section"><h3>Что оплачивается отдельно</h3><p>{{support.changes}}</p><p>Например, проверить, отправляется ли заявка, — поддержка. Заменить цены на поездки по вашему желанию — новая задача с отдельной ценой до начала работы.</p></div>
+    <div class="detail-section"><h3>Если это ошибка разработки</h3><p>Ошибки моей разработки, из-за которых результат не соответствует согласованному заданию, исправляются без доплаты.</p></div>
+  </div>
 </dialog>
 
 <dialog id="extras-details" class="details-dialog" aria-labelledby="extras-details-title">
   <div class="dialog-header"><h2 id="extras-details-title">Услуги по желанию</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
   <div class="dialog-body">
-    <p class="dialog-intro">В {{firstYearTotal}} за первый год эти услуги не входят. Сначала согласуем задачу и стоимость — затем начнём работу.</p>
+    <p class="dialog-intro">Можно заказать при запуске сайта или позже. В {{firstYearTotal}} за первый год эти услуги не входят. Сначала согласуем задачу и стоимость — затем начнём работу.</p>
     <h3 class="group-title">Если нужна реклама в Яндексе</h3>
     <div class="optional-total"><p>Сайт + запуск рекламы</p><strong>от {{siteAndAdsMinimum}}</strong><p>{{ads.siteTotalNote}}</p></div>
     {{adsItems}}<p class="tariff-note">{{ads.minimumNote}}</p>

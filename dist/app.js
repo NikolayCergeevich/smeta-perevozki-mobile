@@ -4,8 +4,8 @@
   var tabLinks = Array.prototype.slice.call(document.querySelectorAll('[data-tab]'));
   var names = {price:'Цена', result:'Результат', start:'Начало', later:'Потом'};
   var ids = Object.keys(names);
-  var aliases = {site:'result', payment:'price', support:'later', ads:'later', services:'later'};
-  var nextLabels = ['Далее: что получите', 'Далее: как начнём', 'Далее: расходы потом'];
+  var aliases = {site:'result', payment:'price', support:'later', ads:'price', services:'price'};
+  var nextLabels = ['Далее: что получите', 'Далее: как начнём', 'Далее: через год'];
   var nav = document.querySelector('.navigation');
   var nextLink = document.getElementById('next');
   var backButton = document.getElementById('back');
@@ -96,7 +96,7 @@
     if (currentIndex > 0) activate(ids[currentIndex - 1], {history:true, scroll:true, focusPanel:true});
   });
 
-  // Вложенные условия открываем в том же окне; при закрытии возвращаем фокус к кнопке.
+  // Подробности доступны с основных экранов; при закрытии возвращаем фокус к кнопке.
   var lastDialogTrigger = null;
   function openDialog(id, trigger) {
     var dialog = document.getElementById(id);
@@ -111,8 +111,8 @@
     dialog.querySelector('.dialog-body').scrollTop = 0;
     document.body.classList.add('modal-open');
   }
-  document.querySelectorAll('[data-dialog], [data-open-dialog]').forEach(function (button) {
-    button.addEventListener('click', function () { openDialog(button.dataset.dialog || button.dataset.openDialog, button); });
+  document.querySelectorAll('[data-dialog]').forEach(function (button) {
+    button.addEventListener('click', function () { openDialog(button.dataset.dialog, button); });
   });
   document.querySelectorAll('dialog').forEach(function (dialog) {
     dialog.querySelector('.close-dialog').addEventListener('click', function () { dialog.close(); });

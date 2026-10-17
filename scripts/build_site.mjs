@@ -29,7 +29,6 @@ const section = item => `<div class="detail-section"><h3>${escapeHtml(item.title
 const service = item => `<div class="detail-section"><h3>${escapeHtml(item.title)}</h3><p class="detail-price">${escapeHtml(item.price)} <span>${escapeHtml(item.unit)}</span></p><p>${escapeHtml(item.text)}</p></div>`;
 const replacements = {
   ...Object.fromEntries(Object.entries(prices).map(([key, value]) => [key, escapeHtml(money(value))])),
-  externalFirstYear: escapeHtml(money(prices.domainFirstYear + prices.hostingYear)),
   packageItems: data.package.items.map(section).join('\n'),
   rules: data.rules.map(section).join('\n'),
   supportItems: '<ul>' + data.support.items.map(text => `<li>${escapeHtml(text)}</li>`).join('') + '</ul>',
