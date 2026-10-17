@@ -25,16 +25,13 @@ for (const [items, expected] of [
   if (items.some((item, index) => item.amount !== expected[index])) throw new Error('Payment rows differ from prices');
 }
 
-const section = item => `<div class="detail-section"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.text)}</p></div>`;
-const service = item => `<div class="detail-section"><h3>${escapeHtml(item.title)}</h3><p class="detail-price">${escapeHtml(item.price)} <span>${escapeHtml(item.unit)}</span></p><p>${escapeHtml(item.text)}</p></div>`;
 const replacements = {
   ...Object.fromEntries(Object.entries(prices).map(([key, value]) => [key, escapeHtml(money(value))])),
-  packageItems: data.package.items.map(section).join('\n'),
-  rules: data.rules.map(section).join('\n'),
-  supportItems: '<ul>' + data.support.items.map(text => `<li>${escapeHtml(text)}</li>`).join('') + '</ul>',
-  adsItems: data.ads.items.map(service).join('\n'),
-  extraItems: data.extras.items.map(service).join('\n'),
-  sources: '<ul class="source-list">' + data.sources.map(item => `<li><a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.provider)} — ${escapeHtml(item.label)}</a><span>Дата тарифа в смете: ${escapeHtml(item.checked)}</span></li>`).join('') + '</ul>'
+  externalFirstYear: escapeHtml(money(prices.domainFirstYear + prices.hostingYear)),
+  // Готовую презентацию можно отправить одним HTML-файлом, включая иллюстрации.
+  styles: readFileSync(new URL('dist/style.css', root), 'utf8'),
+  script: readFileSync(new URL('dist/app.js', root), 'utf8'),
+  illustrations: readFileSync(new URL('src/illustrations.svg', root), 'utf8')
 };
 const template = readFileSync(new URL('src/index.html', root), 'utf8');
 const html = template.replace(/\{\{([\w.]+)\}\}/g, (_, key) => {
