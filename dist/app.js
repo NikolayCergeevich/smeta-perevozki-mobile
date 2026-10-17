@@ -9,6 +9,7 @@
   var nav = document.querySelector('.navigation');
   var nextLink = document.getElementById('next');
   var backButton = document.getElementById('back');
+  var pdfUrl = document.querySelector('.pdf-link').href;
   var currentIndex = 0;
   if (!nav || !panels.length || !tabLinks.length) return;
   document.documentElement.classList.add('js');
@@ -49,7 +50,7 @@
       nextLink.textContent = nextLabels[currentIndex] + ' →';
       document.getElementById('footer-hint').textContent = 'Нажмите «Далее», чтобы посмотреть следующий шаг.';
     } else {
-      nextLink.href = './smeta.pdf';
+      nextLink.href = pdfUrl;
       delete nextLink.dataset.route;
       nextLink.download = 'Смета_сайт_перевозок_черновик.pdf';
       nextLink.textContent = 'Сохранить смету PDF ↓';
@@ -100,7 +101,7 @@
   function openDialog(id, trigger) {
     var dialog = document.getElementById(id);
     if (!dialog || typeof dialog.showModal !== 'function') {
-      window.location.href = './smeta.pdf';
+      window.location.href = pdfUrl;
       return;
     }
     var activeDialog = document.querySelector('dialog[open]');

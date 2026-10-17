@@ -18,6 +18,12 @@ const expectedTotals = {
 for (const [key, expected] of Object.entries(expectedTotals)) {
   if (prices[key] !== expected) throw new Error(`Incorrect total: ${key}`);
 }
+for (const [items, expected] of [
+  [data.payments.initial, [prices.development, prices.domainFirstYear, prices.hostingYear]],
+  [data.payments.yearly, [prices.domainRenewal, prices.hostingYear, prices.supportYear]]
+]) {
+  if (items.some((item, index) => item.amount !== expected[index])) throw new Error('Payment rows differ from prices');
+}
 
 const section = item => `<div class="detail-section"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.text)}</p></div>`;
 const service = item => `<div class="detail-section"><h3>${escapeHtml(item.title)}</h3><p class="detail-price">${escapeHtml(item.price)} <span>${escapeHtml(item.unit)}</span></p><p>${escapeHtml(item.text)}</p></div>`;

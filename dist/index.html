@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#18383e">
   <meta name="description" content="Смета на создание сайта перевозок: полная стоимость, результат, порядок работы и расходы после запуска простыми словами.">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css">
-  <script src="./app.js" defer></script>
+  <link rel="stylesheet" href="./style.css?v=0.3">
+  <script src="./app.js?v=0.3" defer></script>
   <title>Сколько стоит сайт · Смета на сайт перевозок</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
       <img src="./favicon.svg" width="34" height="34" alt="">
       <span><strong>Сайт перевозок</strong><span>Предложение по разработке</span></span>
     </a>
-    <a class="pdf-link" href="./smeta.pdf" download="Смета_сайт_перевозок_черновик.pdf" aria-label="Скачать смету в PDF">PDF <span aria-hidden="true">↓</span></a>
+    <a class="pdf-link" href="./smeta.pdf?v=0.3" download="Смета_сайт_перевозок_черновик.pdf" aria-label="Скачать смету в PDF">PDF <span aria-hidden="true">↓</span></a>
   </header>
 
   <div class="progress-area">
@@ -35,17 +35,16 @@
     <section id="price" class="screen" aria-labelledby="heading-price">
       <div class="screen-heading"><h1 id="heading-price" tabindex="-1">Сколько стоит сайт?</h1></div>
       <div class="price-total">
-        <p>Всего за первый год</p>
-        <strong class="big-price">40 239 ₽</strong>
-        <p class="total-caption">Создание сайта + его работа 12 месяцев</p>
+        <p>Ориентир на первый год</p>
+        <strong class="big-price">45 199 ₽</strong>
+        <p class="total-caption">Создание и поддержка сайта на год.<br>Адрес и хранение файлов тоже учтены.</p>
       </div>
       <div class="payment-list" aria-label="Когда и кому платить">
-        <div class="payment-row"><div><h2>Создание сайта</h2><p>До начала работы · мне</p></div><strong>35 000 ₽</strong></div>
-        <div class="payment-row"><div><h2>Адрес сайта на год</h2><p>При регистрации · сервису</p></div><strong>199 ₽</strong></div>
-        <div class="payment-row"><div><h2>Размещение на год</h2><p>Перед запуском · сервису</p></div><strong>5 040 ₽</strong></div>
+        <div class="payment-row"><h2>Сайт и поддержка</h2><strong>35 000 ₽</strong><p>До начала работ · мне</p><button class="small-details" data-dialog="package-details" aria-haspopup="dialog" aria-label="Подробнее: создание сайта и поддержка">Подробнее</button></div>
+        <div class="payment-row"><h2>Адрес сайта — домен</h2><strong>199 ₽</strong><p>Например: ваша-компания.рф</p><button class="small-details" data-dialog="domain-details" aria-haspopup="dialog" aria-label="Подробнее: адрес сайта, домен">Подробнее</button></div>
+        <div class="payment-row"><h2>Место для сайта</h2><strong>≈ 10 000 ₽</strong><p>Хостинг · аренда на год</p><button class="small-details" data-dialog="hosting-details" aria-haspopup="dialog" aria-label="Подробнее: место для сайта, хостинг">Подробнее</button></div>
       </div>
-      <p class="plain-note">Реклама и новые задачи — отдельно, по желанию. Тарифы сервисов могут измениться.</p>
-      <button class="details-link" data-dialog="payment-details" aria-haspopup="dialog">Почему нужны адрес и размещение? <span aria-hidden="true">↗</span></button>
+      <p class="plain-note">Реклама — отдельно, по желанию. Цены сервисов уточним до оплаты.</p>
     </section>
 
     <section id="result" class="screen" aria-labelledby="heading-result">
@@ -56,7 +55,7 @@
         <article class="result-row"><span class="result-number" aria-hidden="true">03</span><div><h2>Вы получаете заявки</h2><p>На поездку, звонок или перевозку для компании.</p></div></article>
       </div>
       <p class="callout">Поездку и окончательную цену подтверждает ваш диспетчер.</p>
-      <button class="details-link" data-dialog="package-details" aria-haspopup="dialog">Весь состав работ за 35 000 ₽ <span aria-hidden="true">↗</span></button>
+      <button class="details-link" data-dialog="package-details" aria-haspopup="dialog"><span>Весь состав работ<br><small>Единый пакет за 35 000 ₽</small></span><span class="more-label">Подробнее</span></button>
     </section>
 
     <section id="start" class="screen" aria-labelledby="heading-start">
@@ -67,21 +66,18 @@
         <li><span class="timeline-number" aria-hidden="true">3</span><div><h2>Вы оплатите 35 000 ₽</h2><p>Начинаю после полной оплаты, материалов и доступов.</p></div></li>
         <li><span class="timeline-number" aria-hidden="true">4</span><div><h2>Проверим и запустим сайт</h2><p>Включены два раунда правок в рамках задания.</p></div></li>
       </ol>
-      <button class="details-link" data-dialog="rules-details" aria-haspopup="dialog">О сроках, материалах и правках <span aria-hidden="true">↗</span></button>
+      <button class="details-link" data-dialog="rules-details" aria-haspopup="dialog"><span>Порядок работы<br><small>Сроки, материалы и правки</small></span><span class="more-label">Подробнее</span></button>
     </section>
 
     <section id="later" class="screen" aria-labelledby="heading-later">
-      <div class="screen-heading"><h1 id="heading-later" tabindex="-1">Что платить потом?</h1><p>Разработка оплачивается один раз.</p></div>
-      <div class="renewal-card">
-        <p class="card-label">Со второго года · каждые 12 месяцев</p>
-        <div class="renewal-line"><h2>Адрес и размещение</h2><strong>5 460 ₽</strong></div>
-        <p class="renewal-breakdown">420 ₽ за адрес + 5 040 ₽ за размещение</p>
-        <button class="support-option" data-dialog="support-details" aria-haspopup="dialog" aria-label="Поддержка по желанию: что входит"><span><strong>Поддержка — по желанию</strong><span>Дополнительно 10 000 ₽ в год</span></span><span aria-hidden="true">↗</span></button>
-        <p class="renewal-total">Итого с поддержкой <strong>15 460 ₽ / год</strong></p>
+      <div class="screen-heading"><h1 id="heading-later" tabindex="-1">Что платить потом?</h1><p>Со второго года — один из двух вариантов.</p></div>
+      <div class="renewal-options" aria-label="Два варианта годовых расходов">
+        <article class="renewal-choice"><div class="choice-heading"><h2>Без поддержки</h2><strong>10 420 ₽ <small>/ год</small></strong></div><p class="choice-formula">Домен 420 ₽ + хостинг ≈ 10 000 ₽</p><div class="choice-footer"><p>Только адрес и место<br>для сайта.</p><button class="small-details" data-dialog="renewal-details" aria-haspopup="dialog" aria-label="Подробнее: ежегодные расходы без поддержки">Подробнее</button></div></article>
+        <article class="renewal-choice with-support"><div class="choice-heading"><h2>С поддержкой</h2><strong>20 420 ₽ <small>/ год</small></strong></div><p class="choice-formula">10 420 ₽ сервисам + 10 000 ₽ мне</p><div class="choice-footer"><p>Те же сервисы + мои<br>проверки и исправления.</p><button class="small-details" data-dialog="support-details" aria-haspopup="dialog" aria-label="Подробнее: ежегодные расходы с поддержкой">Подробнее</button></div></article>
       </div>
       <p class="included-note"><span aria-hidden="true">✓</span> Первый год поддержки уже включён.</p>
-      <button class="optional-button" data-dialog="extras-details" aria-haspopup="dialog"><span><strong>Реклама и другие услуги</strong><span>Только если понадобятся · посмотреть цены</span></span><span aria-hidden="true">↗</span></button>
-      <p class="tariff-note">Тарифы сервисов могут измениться.</p>
+      <button class="optional-button" data-dialog="extras-details" aria-haspopup="dialog"><span><strong>Реклама и другие услуги</strong><span>Только если понадобятся</span></span><span class="more-label">Подробнее</span></button>
+      <p class="tariff-note">Оба варианта — ориентир. Это не два платежа.</p>
     </section>
   </main>
 
@@ -91,22 +87,55 @@
   </footer>
 </div>
 
+<dialog id="domain-details" class="details-dialog" aria-labelledby="domain-details-title">
+  <div class="dialog-header"><h2 id="domain-details-title">Адрес сайта — домен</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
+  <div class="dialog-body">
+    <p class="example-box"><strong>Например: ваша-компания.рф</strong><br>Такой адрес можно написать на визитке или отправить пассажиру. Он введёт его в браузере и откроет ваш сайт.</p>
+    <div class="detail-section"><h3>За что платите</h3><p>За право пользоваться выбранным свободным адресом в интернете. Этот адрес называется «домен». Пример выше — иллюстрация; свободный адрес выберем вместе.</p></div>
+    <div class="detail-section"><h3>Сколько и кому</h3><p><strong>199 ₽</strong> за первый год. Затем — <strong>420 ₽ в год</strong> по тарифу, заложенному в смету. Платёж компании, которая регистрирует адрес, при регистрации и каждом продлении.</p></div>
+    <div class="detail-section"><h3>Самостоятельно разбираться не нужно</h3><p>Помогу выбрать и оформить адрес на вас. Перед оплатой проверим стоимость; покупка уже занятого адреса рассчитывается отдельно.</p></div>
+    <button class="dialog-text-button" data-open-dialog="payment-details"><span>Общий порядок оплаты</span><span class="more-label">Подробнее</span></button>
+  </div>
+</dialog>
+
+<dialog id="hosting-details" class="details-dialog" aria-labelledby="hosting-details-title">
+  <div class="dialog-header"><h2 id="hosting-details-title">Место для сайта — хостинг</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
+  <div class="dialog-body">
+    <p class="example-box"><strong>Адрес дома и аренда помещения — разные вещи.</strong><br>Домен — адрес вашего сайта. Хостинг — место, где хранятся его страницы, фотографии и формы заявок.</p>
+    <div class="detail-section"><h3>Как это выглядит для пассажира</h3><p>Человек открывает сайт и видит расписание и фотографии. Они загружаются с сервера — компьютера компании, у которой мы арендуем место для сайта. Ваш компьютер можно выключить.</p></div>
+    <div class="detail-section"><h3>Сколько и кому</h3><p><strong>Около 10 000 ₽ за 12 месяцев.</strong> Это бюджет для сметы. Подходящий тариф и точную цену согласуем до оплаты.</p><p>Платёж компании, которая размещает сайт: перед запуском, затем за следующие 12 месяцев. Оформить и оплатить помогу.</p></div>
+    <div class="detail-section"><h3>Чем отличается от моей поддержки</h3><p>Хостинг — аренда места для файлов. Поддержка — мои проверки сайта, резервных копий и технические исправления в согласованном объёме.</p></div>
+    <button class="dialog-text-button" data-open-dialog="payment-details"><span>Общий порядок оплаты</span><span class="more-label">Подробнее</span></button>
+  </div>
+</dialog>
+
+<dialog id="renewal-details" class="details-dialog" aria-labelledby="renewal-details-title">
+  <div class="dialog-header"><h2 id="renewal-details-title">Следующий год без поддержки</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
+  <div class="dialog-body">
+    <p class="example-box"><strong>Ориентир — 10 420 ₽ за год.</strong><br>420 ₽ за сохранение адреса + около 10 000 ₽ за аренду места для сайта.</p>
+    <div class="detail-section"><h3>За что платите повторно</h3><p>За возможность пользоваться адресом сайта и хранить его файлы на сервере ещё 12 месяцев. Платежи идут сервисам в даты продления.</p></div>
+    <div class="detail-section"><h3>Что с самим сайтом</h3><p>Оплачивать создание сайта второй раз не нужно. Моя поддержка в этот вариант не входит. Ошибки разработки, нарушающие согласованное задание, исправляю без доплаты.</p></div>
+    <div class="detail-section"><h3>Если нужна моя поддержка</h3><p>Ещё 10 000 ₽ за мои проверки и технические исправления. Тогда <strong>общая сумма — 20 420 ₽ за год</strong>, включая сервисы.</p></div>
+    <button class="dialog-text-button" data-open-dialog="support-details"><span>Состав поддержки</span><span class="more-label">Подробнее</span></button>
+  </div>
+</dialog>
+
 <dialog id="payment-details" class="details-dialog" aria-labelledby="payment-details-title">
   <div class="dialog-header"><h2 id="payment-details-title">За что и когда платить</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
   <div class="dialog-body">
-    <div class="detail-section"><h3>Всего 40 239 ₽ за первый год</h3><p>Это 35 000 ₽ за разработку и 5 239 ₽ за адрес и размещение сайта. Это разные платежи в свои сроки.</p></div>
+    <div class="detail-section"><h3>Ориентир — 45 199 ₽ за первый год</h3><p>Это 35 000 ₽ за создание и первый год поддержки плюс примерно 10 199 ₽ за адрес и место для сайта. Это разные платежи в свои сроки.</p></div>
     <div class="detail-section"><h3>Создание сайта — 35 000 ₽</h3><p>Работаем по 100% предоплате. Разработка оплачивается полностью до начала работ; дополнительные услуги — полностью до выполнения согласованной задачи.</p><p>Все работы из согласованного пакета входят в эту сумму. Доплаты за разработку перед публикацией нет.</p></div>
     <div class="detail-section"><h3>Адрес — 199 ₽ на первый год</h3><p>Как адрес у дома: по нему клиент найдёт ваш сайт. Например, название-компании.рф. Техническое название — «домен».</p><p>Сумма указана за свободный адрес .ru или .рф. Продление — 420 ₽ в год по текущему тарифу.</p></div>
-    <div class="detail-section"><h3>Размещение — 5 040 ₽ на год</h3><p>Как помещение для сайта: его файлы хранятся на сервере, чтобы посетители могли открыть сайт в интернете. Эта услуга называется «хостинг».</p></div>
+    <div class="detail-section"><h3>Хостинг — около 10 000 ₽ на год</h3><p>Как аренда помещения: здесь хранятся страницы, фото и формы сайта. Эта услуга называется «хостинг». Тариф согласуем до оплаты.</p></div>
     <div class="detail-section"><h3>С регистрацией помогу</h3><p>Домен, хостинг и другие внешние сервисы оплачиваются заказчиком напрямую либо с моей помощью.</p><p>Домен и хостинг оформляются на заказчика. При необходимости помогаю с регистрацией и настройкой.</p></div>
-    <div class="detail-section"><h3>Почему тарифы могут отличаться</h3><p>Внешние тарифы приведены для расчёта и могут измениться. Итоговая цена определяется по счёту сервиса на дату оплаты. У домена и хостинга свои даты продления. Покупка уже занятого адреса рассчитывается отдельно.</p><ul class="source-list"><li><a href="https://beget.com/ru/domains" target="_blank" rel="noopener noreferrer">Beget — Домен .ru / .рф: регистрация и продление</a><span>Дата тарифа в смете: 17.10.2026</span></li><li><a href="https://beget.com/ru/hosting/virtual" target="_blank" rel="noopener noreferrer">Beget — Хостинг Blog при оплате за год</a><span>Дата тарифа в смете: 17.10.2026</span></li></ul></div>
-    <button class="dialog-text-button" data-open-dialog="extras-details">Цены на рекламу и дополнительные услуги →</button>
+    <div class="detail-section"><h3>Почему тарифы могут отличаться</h3><p>На хостинг заложен ориентировочный бюджет 10 000 ₽ в год, а не фиксированный тариф провайдера. Стоимость домена и хостинга уточняем и согласуем по счёту сервиса до оплаты. У них свои даты продления. Покупка уже занятого адреса рассчитывается отдельно.</p><ul class="source-list"><li><a href="https://beget.com/ru/domains" target="_blank" rel="noopener noreferrer">Beget — Домен .ru / .рф: регистрация и продление</a><span>Дата тарифа в смете: 17.10.2026</span></li></ul></div>
+    <button class="dialog-text-button" data-open-dialog="extras-details"><span>Реклама и дополнительные услуги</span><span class="more-label">Подробнее</span></button>
   </div>
 </dialog>
 
 <dialog id="package-details" class="details-dialog" aria-labelledby="package-details-title">
   <div class="dialog-header"><h2 id="package-details-title">Весь сайт за 35 000 ₽</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
-  <div class="dialog-body"><p class="dialog-intro">Единая стоимость за весь согласованный сайт. Все работы ниже входят в пакет.</p><div class="detail-section"><h3>Главная страница</h3><p>Направления, цены, расписание, автомобили, преимущества, ответы на вопросы и контакты. Удобное отображение на телефоне и компьютере.</p></div>
+  <div class="dialog-body"><p class="dialog-intro">Единая стоимость за весь согласованный сайт. Все работы ниже входят в пакет.</p><div class="detail-section"><h3>За что вы платите</h3><p>Я создаю страницы, размещаю ваши материалы, подключаю заявки, проверяю и запускаю сайт. Первые 12 месяцев поддержки уже включены.</p><p><strong>Когда платить:</strong> 35 000 ₽ полностью до начала работы. Перед публикацией доплаты за разработку нет.</p></div><div class="detail-section"><h3>Главная страница</h3><p>Направления, цены, расписание, автомобили, преимущества, ответы на вопросы и контакты. Удобное отображение на телефоне и компьютере.</p></div>
 <div class="detail-section"><h3>Страница «Для организаций»</h3><p>Предложение по перевозке сотрудников: маршруты, графики, автомобили и условия заключения договора по вашим данным.</p></div>
 <div class="detail-section"><h3>Три формы для заявок</h3><p>Заказ поездки, обратный звонок и обращение компании. Проверка заполнения, базовая защита от спама и отправка в один согласованный канал.</p></div>
 <div class="detail-section"><h3>Подключение и запуск</h3><p>Подключение адреса сайта, защищённое соединение, базовая подготовка для поисковых систем, страница с готовыми документами, проверка и публикация.</p></div><div class="detail-section"><h3>Что согласуем до начала</h3><p>2 основные страницы + 1 страница документов; 3 формы; 1 канал получения заявок; 2 раунда правок в пределах согласованного задания.</p></div><div class="detail-section"><h3>Как работает заявка</h3><p>Выбранное направление подставляется в заявку. Диспетчер подтверждает наличие мест, поездку и окончательные условия.</p></div><p class="callout">Первые 12 месяцев технической поддержки с даты запуска включены в стоимость разработки в согласованном объёме.</p></div>
@@ -122,15 +151,15 @@
 
 <dialog id="support-details" class="details-dialog" aria-labelledby="support-details-title">
   <div class="dialog-header"><h2 id="support-details-title">Поддержка после запуска</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
-  <div class="dialog-body"><p class="dialog-intro">Первые 12 месяцев с даты запуска включены в разработку.</p><div class="detail-section"><h3>Что я проверяю и исправляю</h3><ul><li>Плановая проверка доступности сайта и отправки заявок.</li><li>Контроль резервных копий — сохранённых версий для восстановления сайта.</li><li>Технические исправления и необходимые обновления в согласованном объёме.</li></ul><p>Периодичность проверок, время связи, срок ответа и объём обслуживания фиксируем до начала работ.</p></div><div class="detail-section"><h3>Если продлить поддержку</h3><p>Со второго года — 10 000 ₽ за следующие 12 месяцев при продлении.</p><p>Вместе с адресом и размещением это 15 460 ₽ в год. Без моей поддержки — 5 460 ₽ в год только за сервисы.</p></div><div class="detail-section"><h3>Новые пожелания — отдельно</h3><p>Изменение цен, расписания, текстов, дизайна и функций — отдельные задачи. Они согласуются и оплачиваются дополнительно.</p></div><div class="detail-section"><h3>Если это ошибка разработки</h3><p>Ошибки моей разработки, из-за которых результат не соответствует согласованному заданию, исправляются без доплаты.</p></div><p class="tariff-note">Внешние тарифы приведены для расчёта и могут измениться. Итоговая цена определяется по счёту сервиса на дату оплаты. У домена и хостинга свои даты продления. Покупка уже занятого адреса рассчитывается отдельно.</p></div>
+  <div class="dialog-body"><p class="example-box"><strong>С поддержкой — ориентировочно 20 420 ₽ за год.</strong><br>Из них 10 420 ₽ за адрес и хостинг + 10 000 ₽ за мою работу. Это полная сумма выбранного варианта.</p><p class="dialog-intro">Первые 12 месяцев с даты запуска включены в разработку.</p><div class="detail-section"><h3>Что я проверяю и исправляю</h3><ul><li>Плановая проверка доступности сайта и отправки заявок.</li><li>Контроль резервных копий — сохранённых версий для восстановления сайта.</li><li>Технические исправления и необходимые обновления в согласованном объёме.</li></ul><p>Периодичность проверок, время связи, срок ответа и объём обслуживания фиксируем до начала работ.</p></div><div class="detail-section"><h3>Если продлить поддержку</h3><p>Со второго года — 10 000 ₽ за следующие 12 месяцев при продлении.</p><p>За сервисы платите их поставщикам, за поддержку — мне. Оплачивать создание сайта повторно не нужно.</p></div><div class="detail-section"><h3>Новые пожелания — отдельно</h3><p>Изменение цен, расписания, текстов, дизайна и функций — отдельные задачи. Они согласуются и оплачиваются дополнительно.</p></div><div class="detail-section"><h3>Если это ошибка разработки</h3><p>Ошибки моей разработки, из-за которых результат не соответствует согласованному заданию, исправляются без доплаты.</p></div><p class="tariff-note">На хостинг заложен ориентировочный бюджет 10 000 ₽ в год, а не фиксированный тариф провайдера. Стоимость домена и хостинга уточняем и согласуем по счёту сервиса до оплаты. У них свои даты продления. Покупка уже занятого адреса рассчитывается отдельно.</p></div>
 </dialog>
 
 <dialog id="extras-details" class="details-dialog" aria-labelledby="extras-details-title">
   <div class="dialog-header"><h2 id="extras-details-title">Услуги по желанию</h2><button class="close-dialog" aria-label="Закрыть подробности">Закрыть <span aria-hidden="true">×</span></button></div>
   <div class="dialog-body">
-    <p class="dialog-intro">В 40 239 ₽ за первый год эти услуги не входят. Сначала согласуем задачу и стоимость — затем начнём работу.</p>
+    <p class="dialog-intro">В 45 199 ₽ за первый год эти услуги не входят. Сначала согласуем задачу и стоимость — затем начнём работу.</p>
     <h3 class="group-title">Если нужна реклама в Яндексе</h3>
-    <div class="optional-total"><p>Сайт + запуск рекламы</p><strong>от 65 239 ₽</strong><p>Сайт, домен и хостинг на первый год + настройка рекламы и первоначальный рекламный бюджет. Без дальнейшего ведения и дополнительных работ.</p></div>
+    <div class="optional-total"><p>Сайт + запуск рекламы</p><strong>от 70 199 ₽</strong><p>Сайт, домен и хостинг на первый год + настройка рекламы и первоначальный рекламный бюджет. Без дальнейшего ведения и дополнительных работ.</p></div>
     <div class="detail-section"><h3>Настройка рекламы в поиске Яндекса</h3><p class="detail-price">10 000 ₽ <span>разово, до начала настройки</span></p><p>Подбор поисковых фраз, подготовка объявлений, выбор региона, первоначальные настройки и запуск кампании. Рекламный бюджет оплачивается отдельно.</p></div>
 <div class="detail-section"><h3>Бюджет на старт и проверку</h3><p class="detail-price">не менее 15 000 ₽ <span>перед запуском, на рекламный баланс</span></p><p>Деньги для первоначальных показов и переходов. Для этого проекта закладываем минимум 15 000 ₽ на тест рекламы. Затем баланс пополняется по мере расходования и согласованного плана.</p></div>
 <div class="detail-section"><h3>Ведение рекламы</h3><p class="detail-price">от 1 000 ₽ <span>в месяц, по 100% предоплате</span></p><p>Проверка расходов и результатов действующей кампании, небольшие корректировки объявлений и поисковых фраз. Цена зависит от числа кампаний, частоты проверок и объёма изменений; состав работы согласуем заранее.</p></div><p class="tariff-note">Минимум 15 000 ₽ — предложенный тестовый бюджет проекта, а не обязательный минимальный платёж Яндекса.</p>
@@ -141,6 +170,6 @@
 <div class="detail-section"><h3>Автоматизация и готовые сервисы</h3><p class="detail-price">от 1 000 ₽ <span>за небольшое подключение</span></p><p>Например, добавить кнопку перехода в готовый сервис бронирования. Бронирование мест внутри сайта, приём оплаты, личный кабинет и сложный калькулятор рассчитываются отдельно.</p></div><p class="tariff-note">«От» обозначает начальную цену за небольшой согласованный объём. Стоимость полной функции определяется по задаче; подписки внешних сервисов в эту цену не входят.</p>
   </div>
 </dialog>
-<noscript><p class="noscript-note">Все разделы и подробные условия показаны на этой странице. <a href="./smeta.pdf">Открыть PDF</a>.</p></noscript>
+<noscript><p class="noscript-note">Все разделы и подробные условия показаны на этой странице. <a href="./smeta.pdf?v=0.3">Открыть PDF</a>.</p></noscript>
 </body>
 </html>

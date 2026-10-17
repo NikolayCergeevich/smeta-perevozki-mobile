@@ -1,5 +1,7 @@
 from pathlib import Path
 import json
+import os
+import sys
 from xml.sax.saxutils import escape
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
@@ -12,11 +14,18 @@ from reportlab.pdfbase.ttfonts import TTFont
 
 BASE = Path(__file__).resolve().parent.parent
 (BASE/'tmp/pdfs').mkdir(parents=True,exist_ok=True)
-DATA = json.loads((BASE/'estimate-content.json').read_text())
+DATA = json.loads((BASE/'estimate-content.json').read_text(encoding='utf-8'))
 OUT = BASE/'dist/smeta.pdf'
 OUT.parent.mkdir(parents=True, exist_ok=True)
-pdfmetrics.registerFont(TTFont('DV', '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'))
-pdfmetrics.registerFont(TTFont('DV-Bold', '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'))
+# Используем системные шрифты с кириллицей на Windows и Linux.
+if sys.platform == 'win32':
+    font_dir = Path(os.environ.get('WINDIR', r'C:\Windows'))/'Fonts'
+    regular_font, bold_font = font_dir/'arial.ttf', font_dir/'arialbd.ttf'
+else:
+    font_dir = Path('/usr/share/fonts/truetype/dejavu')
+    regular_font, bold_font = font_dir/'DejaVuSans.ttf', font_dir/'DejaVuSans-Bold.ttf'
+pdfmetrics.registerFont(TTFont('DV', str(regular_font)))
+pdfmetrics.registerFont(TTFont('DV-Bold', str(bold_font)))
 pdfmetrics.registerFontFamily('DV', normal='DV', bold='DV-Bold')
 W,H = A4
 M = 40
@@ -30,7 +39,7 @@ LINE = colors.HexColor('#D9E3E6')
 WHITE = colors.white
 PAGES = 6
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
-c.setTitle('Смета сайта пассажирских перевозок - черновик v0.2')
+c.setTitle('Смета сайта пассажирских перевозок - черновик v'+DATA['version'])
 c.setAuthor('Николай')
 c.setSubject('Единый пакет разработки, 100% предоплата, ежегодные расходы и дополнительные услуги')
 positions=[]
@@ -129,7 +138,7 @@ def service_card(item,y):
     p(item['text'],z,x=M+16,w=w,size=11.8)
     return y+h
 
-# 1. One complete development package.
+# 1. Единый пакет разработки.
 header('ПРОЕКТ')
 y=title('Сайт пассажирских перевозок')
 y=p(DATA['subtitle'],y,size=12.2,color=MUTED)+17
@@ -141,12 +150,12 @@ for i,item in enumerate(DATA['package']['items'],1):
 y=p('<b>Согласованный объём.</b> '+DATA['package']['scope'],y,size=11.7)
 end(y,1)
 
-# 2. Who receives payments and when; totals stay separate from optional work.
+# 2. Когда и кому платить; дополнительные услуги считаются отдельно.
 header('ОПЛАТА')
 y=title('Когда и за что платить')
 y=p('<b>100% предоплата</b> за работу исполнителя. Домен, хостинг и другие внешние сервисы оплачиваются заказчиком <b>напрямую либо с моей помощью.</b>',y,size=12.0)+14
-y=price_panel('Запуск и первый год',money(DATA['prices']['firstYearTotal']),
-              'Разработка + адрес сайта + размещение на 12 месяцев',y,h=96)+14
+y=price_panel('Ориентир на запуск и первый год',money(DATA['prices']['firstYearTotal']),
+              'Создание и поддержка на год + домен и хостинг',y,h=96)+14
 for item in DATA['payments']['initial']:
     h=14+measure(item['title'],CW-135,12.3,bold=True)+5+measure(item['when']+' · '+item['to'],CW-30,10.7)+6+measure(item['text'],CW-30,11.5)+14
     box(M,y,CW,h,LIGHT)
@@ -156,14 +165,14 @@ for item in DATA['payments']['initial']:
     p(item['text'],z,x=M+15,w=CW-30,size=11.5)
     y+=h+9
 y=p(DATA['payments']['ownership'],y,size=11.5)+19
-y=note('<b>Если запускаем сайт вместе с рекламой: от 65 239 ₽.</b><br/>'+DATA['ads']['siteTotalNote'],y,size=11.8)+15
+y=note('<b>Если запускаем сайт вместе с рекламой: от '+money(DATA['prices']['siteAndAdsMinimum'])+'.</b><br/>'+DATA['ads']['siteTotalNote'],y,size=11.8)+15
 y=p('Ежегодные продления и дальнейшее ведение рекламы оплачиваются отдельно.',y,size=11.1,color=MUTED)
 end(y,2)
 
-# 3. Support and work rules in readable paragraphs.
+# 3. Два отдельных варианта ежегодных расходов.
 header('ОБСЛУЖИВАНИЕ')
 y=title('Ежегодные платежи')
-y=p('<b>Первые 12 месяцев поддержки</b> с даты запуска включены в разработку. Со второго года действуют платежи ниже.',y,size=12.0)+15
+y=p('<b>Первые 12 месяцев поддержки</b> включены в разработку. Со второго года можно оплачивать только сервисы или сервисы вместе с моей поддержкой.',y,size=12.0)+15
 for item in DATA['payments']['yearly']:
     h=14+measure(item['title'],CW-160,12.3,bold=True)+6+measure(item['text'],CW-30,11.5)+14
     box(M,y,CW,h,LIGHT)
@@ -172,11 +181,12 @@ for item in DATA['payments']['yearly']:
     p(item['text'],z+6,x=M+15,w=CW-30,size=11.5)
     y+=h+9
 half=(CW-12)/2
-for xx,label,value in [(M,'С продлением поддержки',money(DATA['prices']['renewalWithSupport'])),(M+half+12,'Без продления поддержки',money(DATA['prices']['renewalWithoutSupport']))]:
+for xx,label,value in [(M,'Вариант 1: без поддержки',money(DATA['prices']['renewalWithoutSupport'])),(M+half+12,'Вариант 2: с поддержкой',money(DATA['prices']['renewalWithSupport']))]:
     box(xx,y,half,65,PALE)
     p(label,y+11,x=xx+13,w=half-26,size=10.4,color=MUTED)
     p(value+' / год',y+31,x=xx+13,w=half-26,size=17,leading=23,bold=True,color=TEAL)
-y+=84
+y+=78
+y=p('Это полная сумма одного выбранного варианта. Хостинг рассчитан ориентировочно: 10 000 ₽ за год.',y,size=10.6,color=MUTED)+18
 y=section('Что входит в поддержку',y)
 for text in DATA['support']['items']:
     box(M,y+5,5,5,TEAL,2)
@@ -185,22 +195,22 @@ y=p(DATA['support']['scope'],y,size=11.6,color=MUTED)+12
 y=p(DATA['support']['changes'],y,size=11.8)
 end(y,3)
 
-# 4. Advertisement services and ad balance have separate purposes.
+# 4. Настройка рекламы и бюджет на показы — разные расходы.
 header('РЕКЛАМА')
 y=title('Реклама в поиске Яндекса')
 y=p(DATA['ads']['intro'],y,size=12.0)+15
 for item in DATA['ads']['items']:
     y=service_card(item,y)+12
-y=note('<b>Для старта рекламы: от 25 000 ₽</b><br/>'+DATA['ads']['startTotalNote'],y,size=11.8)+12
+y=note('<b>Для старта рекламы: от '+money(DATA['prices']['adsStartMinimum'])+'</b><br/>'+DATA['ads']['startTotalNote'],y,size=11.8)+12
 y=p(DATA['ads']['minimumNote'],y,size=10.6,color=MUTED)
 end(y,4)
 
-# 5. Small extras and source-backed external charges.
+# 5. Дополнительные задачи.
 header('ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ')
 y=title('Задачи вне пакета')
 y=p(DATA['extras']['intro'],y,size=11.8)+13
 for item in DATA['extras']['items']:
-    # Compact service cards preserve the same comfortable body size.
+    # Размер основного текста сохраняем во всех карточках.
     w=CW-30
     ht=measure(item['title'],w,13.0,bold=True)
     hp=measure('<b>'+item['price']+'</b> · '+item['unit'],w,12.0)
@@ -214,7 +224,7 @@ for item in DATA['extras']['items']:
 y=p(DATA['extras']['priceNote'],y,size=10.8,color=MUTED)+10
 end(y,5)
 
-# 6. Plain-language conditions and current external tariff references.
+# 6. Условия работы и источник тарифа на домен.
 header('ПОРЯДОК РАБОТЫ')
 y=title('Что согласуем до начала')
 for item in DATA['rules']:
@@ -223,13 +233,13 @@ for item in DATA['rules']:
 y=p('<b>Материалы для наполнения.</b> '+DATA['package']['materials'],y,size=11.8)+14
 y=p('<b>Обработка заявок.</b> '+DATA['package']['operation'],y,size=11.8)+16
 y=p(DATA['payments']['tariffNote'],y,size=10.8,color=MUTED)+15
-y=p('<b>Источники внешних тарифов · проверено '+DATA['date']+'</b>',y,size=10.1,color=MUTED)+6
+y=p('<b>Источник тарифа на домен · дата в смете '+DATA['date']+'</b>',y,size=10.1,color=MUTED)+6
 for item in DATA['sources']:
     label=item['url'].replace('https://','')
     y=p(item['label']+': <link href="'+escape(item['url'])+'" color="#0B7776">'+label+'</link>',y,size=9.8,leading=13.7,color=MUTED)+4
 end(y,6)
 
 c.save()
-(BASE/'tmp/pdfs/layout_positions_v2.json').write_text(json.dumps(positions,ensure_ascii=False,indent=2))
+(BASE/'tmp/pdfs/layout_positions.json').write_text(json.dumps(positions,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps({'file':str(OUT),'bytes':OUT.stat().st_size,'pages':PAGES,'overflows':overflows,'content_bottoms':{str(i):max(q['bottom'] for q in positions if q['page']==i and q['top']<H-40) for i in range(1,PAGES+1)}},ensure_ascii=False))
 assert not overflows, 'Layout needs more space'
