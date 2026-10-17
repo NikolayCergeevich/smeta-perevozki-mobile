@@ -23,14 +23,18 @@
     <article><svg aria-hidden="true"><use href="#admin"/></svg><h3>Администратор</h3><p>Поддержка: проверяю, всё ли работает.</p></article>
    </div>
   </div></section>
+  <section class="slide glossary-slide" id="glossary" aria-labelledby="title-glossary" hidden><div class="slide-content">
+   <p class="eyebrow">Без технических слов</p><h2 id="title-glossary" tabindex="-1">Простыми<br> <em>словами</em></h2><div class="glossary-art"><svg aria-hidden="true"><use href="#shop"/></svg><svg aria-hidden="true"><use href="#backup"/></svg></div>
+   <dl class="glossary"><div><dt>Домен</dt><dd>Адрес магазина в интернете: например, perevozki.ru.</dd></div><div><dt>Хостинг</dt><dd>Аренда помещения для сайта.</dd></div><div><dt>Резервная копия</dt><dd>Сохранённая версия сайта на случай сбоя.</dd></div><div><dt>Раунд правок</dt><dd>Один список пожеланий.</dd></div></dl>
+  </div></section>
   <section class="slide money-slide" id="price" aria-labelledby="title-price" hidden><div class="slide-content">
    <h2 id="title-price" tabindex="-1">Куда пойдут <em>деньги</em></h2><div class="payer">Вы <span>↓</span></div>
    <div class="money-map" aria-label="Три платежа трём получателям">
-    <article class="money-row"><svg class="branch" aria-hidden="true"><use href="#arrow"/></svg><div class="money-head"><h3>Мне</h3><strong>{{development}}</strong></div><p>100% до начала работ.</p><div class="split-price"><div>Создание сайта<strong class="pending">[УТОЧНИТЬ У АВТОРА]</strong></div><div>Поддержка 1-го года<strong class="pending">[УТОЧНИТЬ У АВТОРА]</strong></div></div></article>
-    <article class="money-row"><svg class="branch" aria-hidden="true"><use href="#arrow"/></svg><div class="money-head"><h3>За адрес</h3><strong>{{domainFirstYear}}</strong></div><p>Регистратору адреса · при оформлении.</p></article>
+    <article class="money-row"><svg class="branch" aria-hidden="true"><use href="#arrow"/></svg><div class="money-head"><h3>Мне</h3><strong>{{development}}</strong></div><p>100% до начала работ.</p><div class="package-includes"><p>Создание сайта + год поддержки.</p><p>Доработки после запуска — отдельно.</p></div></article>
+    <article class="money-row"><svg class="branch" aria-hidden="true"><use href="#arrow"/></svg><div class="money-head"><h3>Адрес .ru/.рф</h3><strong>{{domainFirstYear}}</strong></div><p>Регистратору · при оформлении свободного адреса.</p></article>
     <article class="money-row"><svg class="branch" aria-hidden="true"><use href="#arrow"/></svg><div class="money-head"><h3>За помещение</h3><strong>около {{hostingYear}}</strong></div><p>Компании-хостингу · перед запуском.</p></article>
    </div>
-   <p class="outside-money"><strong>Около {{externalFirstYear}} — компаниям, не мне.</strong></p><div class="total"><span>Первый год</span><strong><small>около</small> {{firstYearTotal}}</strong></div><p class="caption">Итог рассчитан при хостинге {{hostingYear}} в год.</p>
+   <p class="outside-money"><strong>Около {{externalFirstYear}} — компаниям, не мне.</strong></p><div class="total"><span>Первый год</span><strong><small>около</small> {{firstYearTotal}}</strong></div>
   </div></section>
   <section class="slide" id="result" aria-labelledby="title-result" hidden><div class="slide-content">
    <p class="eyebrow">Ваш магазин принимает заявки</p><h2 id="title-result" tabindex="-1">Что получат<br> <em>ваши клиенты</em></h2>
@@ -45,23 +49,26 @@
    <p class="eyebrow">От плана до открытия</p><h2 id="title-start" tabindex="-1">Как пройдёт <em>работа</em></h2>
    <ol class="timeline"><li><span>1</span><div><h3>Согласуем план магазина</h3><p>Определим страницы и дату запуска.</p></div></li><li><span>2</span><div><h3>Вы передадите материалы</h3><p>Тексты, фото и документы.</p></div></li><li><span>3</span><div><h3>💰 Вы оплатите работу</h3><p>Затем я начну создавать сайт.</p></div></li><li><span>4</span><div><h3>💰 Откроем магазин</h3><p>Оплатите помещение. Проверим сайт и заявки.</p></div></li></ol>
    <div class="materials"><h3>Что нужно от вас</h3><p>Тексты, фото, цены, расписание, документы — включая договор перевозки.</p></div>
-   <p class="caption">2 раунда правок: вы дважды собираете пожелания, я вношу изменения.</p><p class="pending">Почему 100% предоплата: [УТОЧНИТЬ У АВТОРА].</p>
+   <p class="caption">2 раунда правок — до запуска. Вы собираете пожелания, я вношу изменения.</p><p class="caption">Условие работы — 100% предоплата.</p>
   </div></section>
   <section class="slide renewal-slide" id="later" aria-labelledby="title-later" hidden><div class="slide-content">
-   <p class="eyebrow">Магазин уже открыт</p><h2 id="title-later" tabindex="-1">Что платить<br> <em>со 2-го года</em></h2>
-   <article class="renewal-card"><svg aria-hidden="true"><use href="#key"/></svg><div><h3>Только аренда</h3><strong>около {{renewalWithoutSupport}}</strong><p>в год · компаниям</p><p>{{domainRenewal}} адрес + {{hostingYear}} помещение.</p></div></article>
-   <article class="renewal-card with-admin"><svg aria-hidden="true"><use href="#admin"/></svg><div><h3>Аренда + присмотр</h3><strong>около {{renewalWithSupport}}</strong><p>в год · компании и я</p><p>Те же платежи + {{supportYear}} мне.</p></div></article>
-   <p class="caption">Каждую услугу оплачиваете перед продлением.</p>
-   <div class="hosting-check"><p>Цена хостинга зависит от тарифа.</p><p class="pending">[ПРОВЕРИТЬ: может ли клиент найти то же дешевле]</p></div>
+   <p class="eyebrow">Ежегодные расходы</p><h2 id="title-later" tabindex="-1">Что платить<br> <em>со 2-го года</em></h2>
+   <p class="caption">Создание сайта повторно не оплачивается.</p>
+   <div class="renewal-comparison" aria-label="Сравнение ежегодных расходов">
+    <section class="renewal-line" aria-labelledby="without-support"><h3 id="without-support">Без поддержки</h3><p class="yearly-amount">около {{renewalWithoutSupport}} <span>/ год</span></p><p>Компаниям: {{domainRenewal}} за адрес + около {{hostingYear}} за размещение.</p></section>
+    <section class="renewal-line" aria-labelledby="with-support"><h3 id="with-support">С поддержкой</h3><p class="yearly-amount">около {{renewalWithSupport}} <span>/ год</span></p><p>{{renewalWithoutSupport}} компаниям + {{supportYear}} мне.</p></section>
+   </div>
+   <p>Поддержка — по желанию.</p><p class="caption">Оплата — перед продлением каждой услуги.</p><p class="caption">Цена размещения зависит от тарифа.</p>
   </div></section>
   <section class="slide support-slide" id="support" aria-labelledby="title-support" hidden><div class="slide-content">
-   <div class="support-heading"><div><p class="eyebrow">Администратор магазина</p><h2 id="title-support" tabindex="-1">Присмотр<br> <em>или переделка?</em></h2></div><svg aria-hidden="true"><use href="#admin"/></svg></div>
-   <div class="support-columns"><article><h3>Входит</h3><ul><li>Проверка заявок</li><li>Резервные копии</li><li>Технические исправления</li></ul></article><article><h3>Не входит</h3><ul><li>Смена цен</li><li>Смена текстов</li><li>Другой дизайн</li><li>Новые функции</li></ul></article></div>
-   <div class="note"><strong>Присмотр — проверять работу кассы.</strong><p>Переделка — менять вашу витрину.</p></div><p class="caption">Новые задачи оцениваю до начала работы.</p><p class="caption">Первый год присмотра включён. Отсчёт — с запуска.</p>
+   <div class="support-heading"><div><p class="eyebrow">После запуска сайта</p><h2 id="title-support" tabindex="-1">Что даёт<br> <em>поддержка</em></h2></div><svg aria-hidden="true"><use href="#admin"/></svg></div>
+   <div class="support-context"><p><strong>Первый год входит в {{development}}.</strong></p><p>Отсчёт — со дня запуска сайта.</p><p>Дальше — {{supportYear}} в год, по желанию.</p></div>
+   <div class="support-columns"><article><h3>В поддержке</h3><ul><li>Проверка отправки заявок</li><li>Резервные копии</li><li>Исправление технических сбоев</li></ul></article><article><h3>За отдельную плату</h3><ul><li>Смена цен и текстов</li><li>Новый дизайн</li><li>Новые страницы и функции</li></ul></article></div>
+   <p class="caption">Доработки после запуска не входят в поддержку.</p><p class="caption">Их стоимость согласуем до начала работы.</p>
   </div></section>
   <section class="slide extras-slide" id="extras" aria-labelledby="title-extras" hidden><div class="slide-content">
-   <p class="eyebrow">Необязательные услуги</p><h2 id="title-extras" tabindex="-1">Если захотите<br> <em>больше</em></h2><svg class="extras-art" role="img" aria-label="Мегафон для рекламы магазина"><use href="#megaphone"/></svg><p class="extras-lead">Можно позвать покупателей<br> или расширить магазин.</p><p class="caption">Эти услуги оплачиваются отдельно.</p>
-   <details id="extras-prices"><summary><span>Цены дополнительных услуг</span><b aria-hidden="true">+</b></summary><div class="extras-body"><table><caption>Реклама и изменения сайта</caption><tbody>
+   <p class="eyebrow">Необязательные услуги</p><h2 id="title-extras" tabindex="-1">Если захотите<br> <em>больше</em></h2><svg class="extras-art" role="img" aria-label="Мегафон для рекламы магазина"><use href="#megaphone"/></svg><p class="extras-lead">Можно позвать покупателей<br> или расширить магазин.</p><p class="caption">Не входят в основную стоимость сайта.</p><p class="extras-hint">Нажмите кнопку ниже: откроется список с ценами.</p>
+   <details id="extras-prices"><summary><span id="extras-toggle-label">Посмотреть услуги и цены</span><b aria-hidden="true">+</b></summary><div class="extras-body"><table><caption>Реклама и изменения сайта</caption><tbody>
     <tr><th scope="row">Настройка Яндекса<small>Мне · до настройки</small></th><td>{{adsSetup}}</td></tr>
     <tr><th scope="row">Тест рекламы<small>Яндексу · перед показами</small></th><td>не менее {{adsTestBudgetMinimum}}</td></tr>
     <tr><th scope="row">Ведение рекламы<small>Мне · предоплата за месяц</small></th><td>от {{adsManagementMonthlyFrom}}/мес.</td></tr>
@@ -69,16 +76,18 @@
     <tr><th scope="row">Страницы, подключения, готовые сервисы<small>За небольшую задачу</small></th><td>от {{extraServicesFrom}}</td></tr>
    </tbody></table><p class="caption">Полная новая страница оценивается отдельно.</p><p class="caption">Дополнительные работы оплачиваются полностью до начала.</p><div class="extra-total"><span>Сайт + старт рекламы</span><strong>от {{siteAndAdsMinimum}}</strong></div><p class="caption">Включены настройка рекламы и деньги на первые показы.</p><p class="caption">Дальнейшее ведение оплачивается отдельно.</p></div></details>
   </div></section>
-  <section class="slide glossary-slide" id="glossary" aria-labelledby="title-glossary" hidden><div class="slide-content">
-   <p class="eyebrow">Без технических слов</p><h2 id="title-glossary" tabindex="-1">Простыми<br> <em>словами</em></h2><div class="glossary-art"><svg aria-hidden="true"><use href="#shop"/></svg><svg aria-hidden="true"><use href="#backup"/></svg></div>
-   <dl class="glossary"><div><dt>Домен</dt><dd>Адрес магазина в интернете: например, perevozki.ru.</dd></div><div><dt>Хостинг</dt><dd>Аренда помещения для сайта.</dd></div><div><dt>Резервная копия</dt><dd>Сохранённая версия сайта на случай сбоя.</dd></div><div><dt>Раунд правок</dt><dd>Один список пожеланий.</dd></div></dl>
-  </div></section>
   <section class="slide finish-slide" id="finish" aria-labelledby="title-finish" hidden><div class="slide-content">
-   <p class="eyebrow">Ваш следующий шаг</p><h2 id="title-finish" tabindex="-1">Обсудим детали.<br> <em>Затем откроем<br> ваш магазин.</em></h2><div class="finish-art"><svg role="img" aria-label="Готовый магазин и сообщение автору"><use href="#shop"/></svg><svg aria-hidden="true"><use href="#bubble"/></svg></div><p class="finish-copy">Нажмите «Задать вопрос».<br> Отправьте его автору сметы.</p><p class="caption">Можно уточнить цену, состав работы или порядок оплаты.</p>
+   <p class="eyebrow">Все платежи на старте</p><h2 id="title-finish" tabindex="-1">Итоговая <em>смета</em></h2>
+   <div class="finish-total"><p>Всего за первый год</p><strong><small>около</small> {{firstYearTotal}}</strong></div>
+   <dl class="finish-items">
+    <div><dt>Создание сайта<br> и год поддержки</dt><dd>{{development}}</dd><dd class="payment-timing">Мне · до начала работы.</dd></div>
+    <div><dt>Свободный адрес<br> .ru/.рф на год</dt><dd>{{domainFirstYear}}</dd><dd class="payment-timing">Регистратору · при оформлении.</dd></div>
+    <div><dt>Размещение<br> на год</dt><dd><small>около</small> {{hostingYear}}</dd><dd class="payment-timing">Компании-хостингу · перед запуском.</dd></div>
+   </dl>
+   <p class="finish-exclusions">Реклама и доработки после запуска оплачиваются отдельно.</p>
   </div></section>
  </main>
- <footer class="controls"><button id="previous" class="arrow-button" aria-label="Предыдущий слайд" disabled><svg aria-hidden="true"><use href="#arrow"/></svg></button><button id="ask-question" class="primary-button">Задать вопрос</button><button id="next" class="arrow-button" aria-label="Следующий слайд"><svg aria-hidden="true"><use href="#arrow"/></svg></button></footer>
+ <footer class="controls"><button id="previous" class="nav-button" aria-label="Предыдущий слайд" disabled><svg aria-hidden="true"><use href="#arrow"/></svg><span>Назад</span></button><button id="next" class="nav-button next-button" aria-label="Следующий слайд"><span id="next-label">Далее</span><svg aria-hidden="true"><use href="#arrow"/></svg></button></footer>
 </div>
-<dialog id="question-dialog" aria-labelledby="question-title"><div class="dialog-header"><h2 id="question-title">Что обсудим?</h2><button id="close-question" aria-label="Закрыть вопрос">×</button></div><div class="dialog-body"><p>Напишите вопрос. Скопируйте или выберите приложение для отправки.</p><label for="question-text">Ваш вопрос</label><textarea id="question-text" rows="5"></textarea><button id="share-question" class="primary-button" hidden>Поделиться вопросом</button><button id="copy-question" class="secondary-button">Скопировать вопрос</button><p id="question-status" role="status">Здесь вопрос только готовится. Получателя выбираете вы.</p></div></dialog>
 <noscript><p class="noscript-note">Все слайды показаны одной страницей. Для свайпов включите JavaScript.</p></noscript><script>{{script}}</script>
 </body></html>

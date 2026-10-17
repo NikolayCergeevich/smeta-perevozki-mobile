@@ -5,11 +5,6 @@
   var aliases = {site:'result', payment:'price', ads:'extras', services:'extras'};
   var previousButton = document.getElementById('previous');
   var nextButton = document.getElementById('next');
-  var askButton = document.getElementById('ask-question');
-  var dialog = document.getElementById('question-dialog');
-  var questionText = document.getElementById('question-text');
-  var questionStatus = document.getElementById('question-status');
-  var shareButton = document.getElementById('share-question');
   var currentIndex = 0;
   if (!panels.length) return;
   document.documentElement.classList.add('js');
@@ -26,7 +21,9 @@
     var heading = currentPanel.querySelector('h1,h2');
     document.getElementById('slide-count').textContent = String(currentIndex + 1).padStart(2, '0') + ' / 10';
     previousButton.disabled = currentIndex === 0;
-    nextButton.disabled = currentIndex === panels.length - 1;
+    var isLastSlide = currentIndex === panels.length - 1;
+    document.getElementById('next-label').textContent = isLastSlide ? 'В начало' : 'Далее';
+    nextButton.setAttribute('aria-label', isLastSlide ? 'Вернуться к началу' : 'Следующий слайд');
     currentPanel.querySelector('.slide-content').scrollTop = 0;
     document.title = heading.textContent.replace(/\s+/g, ' ').trim() + ' · Смета на сайт';
     if (options.history && location.hash !== '#' + currentPanel.id) {
@@ -37,9 +34,12 @@
   }
   function moveBy(direction) { activate(currentIndex + direction, {history:true, focus:true}); }
   previousButton.addEventListener('click', function () { moveBy(-1); });
-  nextButton.addEventListener('click', function () { moveBy(1); });
+  nextButton.addEventListener('click', function () {
+    if (currentIndex === panels.length - 1) activate(0, {history:true, focus:true});
+    else moveBy(1);
+  });
   document.addEventListener('keydown', function (event) {
-    if (dialog.open || event.target.closest('textarea,input,select,summary')) return;
+    if (event.target.closest('summary')) return;
     var destination = {ArrowRight:currentIndex + 1, ArrowLeft:currentIndex - 1, Home:0, End:panels.length - 1}[event.key];
     if (destination !== undefined) {
       event.preventDefault();
@@ -66,65 +66,15 @@
 
   var extras = document.getElementById('extras-prices');
   extras.addEventListener('toggle', function () {
+    document.getElementById('extras-toggle-label').textContent = extras.open ? 'Свернуть список услуг' : 'Посмотреть услуги и цены';
     var content = extras.closest('.slide-content');
     // После раскрытия сразу показываем цены, сохраняя кнопку закрытия вверху.
     content.scrollTop = extras.open ? content.scrollTop + extras.getBoundingClientRect().top - content.getBoundingClientRect().top - 16 : 0;
   });
 
-  // Никаких выдуманных контактов: пользователь сам выбирает чат и отправляет вопрос.
-  askButton.addEventListener('click', function () {
-    if (!questionText.value.trim()) questionText.value = 'Здравствуйте! Хочу обсудить смету на сайт перевозок.\nМой вопрос: ';
-    questionStatus.textContent = 'Здесь вопрос только готовится. Получателя выбираете вы.';
-    shareButton.hidden = typeof navigator.share !== 'function';
-    dialog.showModal();
-    document.getElementById('close-question').focus();
-  });
-  document.getElementById('close-question').addEventListener('click', function () { dialog.close(); });
-  dialog.addEventListener('close', function () { askButton.focus({preventScroll:true}); });
-  dialog.addEventListener('click', function (event) {
-    if (event.target !== dialog) return;
-    var bounds = dialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
-  });
-  function readQuestion() {
-    var value = questionText.value.trim();
-    if (!value) {
-      questionStatus.textContent = 'Сначала напишите вопрос.';
-      questionText.focus();
-    }
-    return value;
-  }
-  document.getElementById('copy-question').addEventListener('click', async function () {
-    var value = readQuestion();
-    if (!value) return;
-    var copied = false;
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(value);
-        copied = true;
-      }
-    } catch (error) { /* При запрете буфера используем выделение текста. */ }
-    if (!copied) {
-      questionText.focus();
-      questionText.select();
-      try { copied = document.execCommand('copy'); } catch (error) { copied = false; }
-    }
-    questionStatus.textContent = copied ? 'Текст скопирован. Отправьте его автору сметы.' : 'Выделите текст, скопируйте и отправьте автору сметы.';
-  });
-  shareButton.addEventListener('click', async function () {
-    var value = readQuestion();
-    if (!value) return;
-    try {
-      await navigator.share({title:'Вопрос по смете на сайт', text:value});
-      questionStatus.textContent = 'Продолжите в выбранном приложении.';
-    } catch (error) {
-      questionStatus.textContent = error.name === 'AbortError' ? 'Отправка отменена. Вопрос сохранён здесь.' : 'Не удалось открыть отправку. Скопируйте вопрос кнопкой ниже.';
-    }
-  });
   function syncFromLocation() {
     var hash = location.hash.slice(1);
     var index = ids.indexOf(aliases[hash] || hash);
-    if (dialog.open) dialog.close();
     activate(index < 0 ? 0 : index);
   }
   window.addEventListener('hashchange', syncFromLocation);

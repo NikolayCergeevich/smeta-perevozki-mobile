@@ -25,7 +25,7 @@ body {
   display:grid;
   place-items:center
 }
-button,textarea {
+button {
   font:inherit
 }
 button {
@@ -38,7 +38,7 @@ button:disabled {
 button,summary {
   touch-action:manipulation
 }
-button:focus-visible,summary:focus-visible,textarea:focus-visible {
+button:focus-visible,summary:focus-visible {
   outline:3px solid #b95c39;
   outline-offset:3px
 }
@@ -162,15 +162,7 @@ h1:focus,h2:focus {
   font-size:16px;
   color:var(--muted)
 }
-.pending {
-  font-size:16px;
-  line-height:1.25;
-  font-weight:400;
-  color:#825128;
-  background:#f1e5c8;
-  padding:5px 7px;
-  border-radius:4px
-}
+
 .controls {
   display:flex;
   align-items:center;
@@ -180,52 +172,17 @@ h1:focus,h2:focus {
   background:var(--paper);
   border-top:1px solid var(--line)
 }
-.primary-button,.secondary-button {
-  border:0;
-  border-radius:12px;
-  min-height:48px;
-  padding:12px 14px;
-  font-weight:700;
-  line-height:1.25;
-  font-size:16px
-}
-.primary-button {
-  background:var(--green);
-  color:#fffdf5;
-  flex:1
-}
-.primary-button:hover {
-  background:#215441
-}
-.secondary-button {
-  background:#e6ecdf;
-  color:var(--ink);
-  border:1px solid #c5d1c0
-}
-.arrow-button {
-  width:48px;
-  height:48px;
-  display:grid;
-  place-items:center;
-  border:1px solid #b8c4b7;
-  background:transparent;
-  border-radius:12px;
-  color:var(--green);
-  flex:none
-}
-.arrow-button svg {
-  width:24px;
-  height:24px
-}
-.arrow-button:disabled {
-  opacity:.28
-}
+
+
+
+
+
+
+
 #previous svg {
   transform:rotate(180deg)
 }
-.primary-button[hidden] {
-  display:none
-}
+
 .cover .slide-content {
   gap:16px
 }
@@ -337,22 +294,8 @@ h1:focus,h2:focus {
   color:var(--muted);
   margin-top:4px
 }
-.split-price {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  border-top:1px solid var(--line);
-  padding-top:7px;
-  margin-top:7px;
-  line-height:1.2
-}
-.split-price strong {
-  display:block;
-  margin-top:4px;
-  padding:4px;
-  font-size:16px;
-  overflow-wrap:anywhere
-}
+
+
 .outside-money {
   color:var(--green)
 }
@@ -499,46 +442,14 @@ h1:focus,h2:focus {
 .renewal-slide h2 {
   font-size:32px
 }
-.renewal-card {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:12px;
-  background:#fffcf4;
-  border:1px solid var(--line);
-  border-radius:14px
-}
-.renewal-card svg {
-  width:52px;
-  height:52px
-}
-.renewal-card>div {
-  min-width:0
-}
-.renewal-card strong {
-  font-size:25px;
-  letter-spacing:-.6px;
-  display:block;
-  margin:5px 0;
-  white-space:nowrap
-}
-.renewal-card p+p {
-  margin-top:6px;
-  color:var(--muted)
-}
-.with-admin {
-  background:#e2e9d9;
-  border-color:#b9cbb2
-}
-.hosting-check {
-  padding-top:10px;
-  border-top:1px solid var(--line);
-  display:grid;
-  gap:5px
-}
-.hosting-check p {
-  font-size:16px
-}
+
+
+
+
+
+
+
+
 .support-heading {
   position:relative
 }
@@ -610,7 +521,7 @@ h1:focus,h2:focus {
   line-height:1.25
 }
 .extras-slide details {
-  margin-top:auto;
+  margin-top:0;
   border:1px solid #bdcbb8;
   border-radius:12px;
   background:#e7ebdf
@@ -624,7 +535,10 @@ h1:focus,h2:focus {
   gap:10px;
   cursor:pointer;
   padding:14px;
-  font-weight:700
+  font-weight:700;
+  background:var(--green);
+  color:#fffdf5;
+  border-radius:11px
 }
 .extras-slide summary::-webkit-details-marker {
   display:none
@@ -724,87 +638,20 @@ h1:focus,h2:focus {
 .finish-slide h2 {
   font-size:clamp(28px,8vw,38px)
 }
-.finish-art {
-  position:relative;
-  margin:auto 0 0
-}
-.finish-art svg:first-child {
-  width:100%;
-  height:220px
-}
-.finish-art svg:last-child {
-  position:absolute;
-  top:0;
-  right:4px;
-  width:90px;
-  height:65px
-}
-.finish-copy {
-  font-size:22px;
-  line-height:1.35
-}
-dialog {
-  padding:0;
-  border:1px solid #c9d2c0;
-  border-radius:20px;
-  background:var(--paper);
-  color:var(--ink);
-  width:min(420px,calc(100vw - 24px));
-  max-height:calc(100dvh - 32px);
-  overflow-y:auto;
-  box-shadow:0 20px 80px #18312540
-}
-dialog::backdrop {
-  background:#102e26aa;
-  backdrop-filter:blur(4px)
-}
-.dialog-header {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  padding:16px 18px;
-  border-bottom:1px solid var(--line)
-}
-.dialog-header h2 {
-  font-size:28px
-}
-.dialog-header button {
-  width:44px;
-  height:44px;
-  border:1px solid #bdcbb8;
-  background:transparent;
-  border-radius:50%;
-  font-size:30px;
-  color:var(--ink);
-  flex:none
-}
-.dialog-body {
-  padding:18px;
-  display:grid;
-  gap:14px
-}
-.dialog-body label {
-  font-weight:700
-}
-.dialog-body textarea {
-  resize:vertical;
-  width:100%;
-  min-height:120px;
-  border:1px solid #a8b9a3;
-  border-radius:9px;
-  padding:12px;
-  color:var(--ink);
-  background:#fffcf7;
-  line-height:1.4
-}
-.dialog-body button {
-  width:100%
-}
-#question-status {
-  color:var(--muted);
-  font-size:16px
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .noscript-note {
   padding:20px
 }
@@ -858,23 +705,11 @@ html:not(.js) .controls,html:not(.js) .progress {
 .work-slide .timeline {
   gap:10px
 }
-.renewal-card {
-  position:relative;
-  padding-right:10px
-}
-.renewal-card svg {
-  width:38px;
-  height:38px
-}
-.renewal-card strong {
-  font-size:24px
-}
-.renewal-card p {
-  font-size:16px
-}
-.renewal-card p+p {
-  margin-top:5px
-}
+
+
+
+
+
 .glossary-art svg:first-child {
   height:128px
 }
@@ -921,18 +756,13 @@ html:not(.js) .controls,html:not(.js) .progress {
   .money-row {
     padding:7px
   }
-  .split-price {
-    gap:5px
-  }
-  .renewal-card {
+
+.renewal-card {
     padding:10px;
     gap:7px
   }
-  .renewal-card svg {
-    width:42px;
-    height:42px
-  }
-  .renewal-card strong {
+
+.renewal-card strong {
     font-size:23px
   }
   .timeline {
@@ -961,9 +791,7 @@ html:not(.js) .controls,html:not(.js) .progress {
   .glossary-art svg:first-child {
     height:125px
   }
-  .finish-art svg:first-child {
-    height:190px
-  }
+
 }
 @media(prefers-reduced-motion:no-preference) {
   .slide:not([hidden]) {
@@ -1004,7 +832,7 @@ html:not(.js) .controls,html:not(.js) .progress {
     height:auto;
     overflow:visible
   }
-  .controls,.topbar,.progress,dialog {
+  .controls,.topbar,.progress {
     display:none
   }
   details:not([open])>*:not(summary) {
@@ -1015,21 +843,16 @@ html:not(.js) .controls,html:not(.js) .progress {
   .renewal-slide .slide-content {
     gap:9px
   }
-  .renewal-card {
-    display:block;
-    padding:10px
-  }
-  .renewal-card svg {
+
+.renewal-card svg {
     position:absolute;
     right:12px;
     top:12px;
     width:36px;
     height:36px
   }
-  .renewal-card h3 {
-    padding-right:40px
-  }
-  .renewal-card strong {
+
+.renewal-card strong {
     padding-right:30px
   }
   .support-slide .slide-content {
@@ -1060,6 +883,57 @@ html:not(.js) .controls,html:not(.js) .progress {
 .glossary-art {
   --shop-sign:hidden
 }
+
+.nav-button {
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  min-height:48px;padding:12px 16px;border:1px solid #b8c4b7;
+  border-radius:12px;background:transparent;color:var(--green);font-weight:700;
+}
+.nav-button svg {width:24px;height:24px}
+.nav-button:disabled {opacity:.28}
+.next-button {flex:1;background:var(--green);border-color:var(--green);color:#fffdf5}
+.next-button:hover {background:#215441}
+.package-includes {border-top:1px solid var(--line);margin-top:8px;padding-top:4px}
+.package-includes p:first-child {color:var(--ink);font-weight:700}
+.package-includes p+p {margin-top:7px}
+.renewal-comparison {display:grid;gap:16px;margin:4px 0}
+.renewal-line {border-top:1px solid #bac8b8;padding-top:10px;display:grid;gap:8px}
+.renewal-line h3 {font-size:18px}
+.yearly-amount {font-size:28px;font-weight:700;letter-spacing:-.6px}
+.yearly-amount span {font-size:16px;font-weight:400;letter-spacing:0;white-space:nowrap}
+.support-context {border-left:3px solid var(--green);padding-left:12px;display:grid;gap:4px}
+.support-context p {font-size:16px}
+.support-columns {margin:0}
+.support-columns h3 {min-height:40px;margin-bottom:10px}
+.support-columns ul {gap:12px}
+.extras-hint {font-size:16px;color:var(--green);margin-top:8px}
+.extras-slide summary:hover {background:#215441}
+.extras-slide details[open] summary {border-radius:11px 11px 0 0}
+.finish-slide .slide-content {gap:12px}
+.finish-total {padding:15px 18px;border-radius:14px;background:var(--ink);color:#fffdf5}
+.finish-total strong {display:block;font-size:38px;line-height:1.15;letter-spacing:-1px;margin-top:4px}
+.finish-total small,.finish-items small {font-size:16px;font-weight:400;letter-spacing:0}
+.finish-items {margin:0;display:grid}
+.finish-items>div {padding:12px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;row-gap:5px}
+.finish-items dt {font-weight:700;line-height:1.25}
+.finish-items dd {margin:0;font-size:20px;font-weight:700;align-self:center;white-space:nowrap}
+.finish-items .payment-timing {grid-column:1/-1;font-size:16px;font-weight:400;white-space:normal;color:var(--muted);line-height:1.25}
+.finish-exclusions {font-size:16px;border-left:3px solid var(--orange);padding-left:10px}
+@media(max-width:389px) {
+  .renewal-comparison {gap:16px}
+  .renewal-line {padding-top:10px;gap:6px}
+  .yearly-amount {font-size:26px}
+  .support-columns article {padding:10px}
+  .support-columns ul {gap:10px}
+  .support-slide .slide-content {gap:8px}
+  .extras-art {height:115px;margin:4px auto}
+  .finish-slide .slide-content {gap:9px}
+  .finish-total {padding:12px 14px}
+  .finish-total strong {font-size:34px}
+  .finish-items>div {padding:10px 0}
+}
+
+.renewal-slide .slide-content {gap:10px}
 </style>
 </head><body>
 <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
@@ -1106,14 +980,18 @@ html:not(.js) .controls,html:not(.js) .progress {
     <article><svg aria-hidden="true"><use href="#admin"/></svg><h3>Администратор</h3><p>Поддержка: проверяю, всё ли работает.</p></article>
    </div>
   </div></section>
+  <section class="slide glossary-slide" id="glossary" aria-labelledby="title-glossary" hidden><div class="slide-content">
+   <p class="eyebrow">Без технических слов</p><h2 id="title-glossary" tabindex="-1">Простыми<br> <em>словами</em></h2><div class="glossary-art"><svg aria-hidden="true"><use href="#shop"/></svg><svg aria-hidden="true"><use href="#backup"/></svg></div>
+   <dl class="glossary"><div><dt>Домен</dt><dd>Адрес магазина в интернете: например, perevozki.ru.</dd></div><div><dt>Хостинг</dt><dd>Аренда помещения для сайта.</dd></div><div><dt>Резервная копия</dt><dd>Сохранённая версия сайта на случай сбоя.</dd></div><div><dt>Раунд правок</dt><dd>Один список пожеланий.</dd></div></dl>
+  </div></section>
   <section class="slide money-slide" id="price" aria-labelledby="title-price" hidden><div class="slide-content">
    <h2 id="title-price" tabindex="-1">Куда пойдут <em>деньги</em></h2><div class="payer">Вы <span>↓</span></div>
    <div class="money-map" aria-label="Три платежа трём получателям">
-    <article class="money-row"><svg class="branch" aria-hidden="true"><use href="#arrow"/></svg><div class="money-head"><h3>Мне</h3><strong>35 000 ₽</strong></div><p>100% до начала работ.</p><div class="split-price"><div>Создание сайта<strong class="pending">[УТОЧНИТЬ У АВТОРА]</strong></div><div>Поддержка 1-го года<strong class="pending">[УТОЧНИТЬ У АВТОРА]</strong></div></div></article>
-    <article class="money-row"><svg class="branch" aria-hidden="true"><use href="#arrow"/></svg><div class="money-head"><h3>За адрес</h3><strong>199 ₽</strong></div><p>Регистратору адреса · при оформлении.</p></article>
+    <article class="money-row"><svg class="branch" aria-hidden="true"><use href="#arrow"/></svg><div class="money-head"><h3>Мне</h3><strong>35 000 ₽</strong></div><p>100% до начала работ.</p><div class="package-includes"><p>Создание сайта + год поддержки.</p><p>Доработки после запуска — отдельно.</p></div></article>
+    <article class="money-row"><svg class="branch" aria-hidden="true"><use href="#arrow"/></svg><div class="money-head"><h3>Адрес .ru/.рф</h3><strong>199 ₽</strong></div><p>Регистратору · при оформлении свободного адреса.</p></article>
     <article class="money-row"><svg class="branch" aria-hidden="true"><use href="#arrow"/></svg><div class="money-head"><h3>За помещение</h3><strong>около 10 000 ₽</strong></div><p>Компании-хостингу · перед запуском.</p></article>
    </div>
-   <p class="outside-money"><strong>Около 10 199 ₽ — компаниям, не мне.</strong></p><div class="total"><span>Первый год</span><strong><small>около</small> 45 199 ₽</strong></div><p class="caption">Итог рассчитан при хостинге 10 000 ₽ в год.</p>
+   <p class="outside-money"><strong>Около 10 199 ₽ — компаниям, не мне.</strong></p><div class="total"><span>Первый год</span><strong><small>около</small> 45 199 ₽</strong></div>
   </div></section>
   <section class="slide" id="result" aria-labelledby="title-result" hidden><div class="slide-content">
    <p class="eyebrow">Ваш магазин принимает заявки</p><h2 id="title-result" tabindex="-1">Что получат<br> <em>ваши клиенты</em></h2>
@@ -1128,23 +1006,26 @@ html:not(.js) .controls,html:not(.js) .progress {
    <p class="eyebrow">От плана до открытия</p><h2 id="title-start" tabindex="-1">Как пройдёт <em>работа</em></h2>
    <ol class="timeline"><li><span>1</span><div><h3>Согласуем план магазина</h3><p>Определим страницы и дату запуска.</p></div></li><li><span>2</span><div><h3>Вы передадите материалы</h3><p>Тексты, фото и документы.</p></div></li><li><span>3</span><div><h3>💰 Вы оплатите работу</h3><p>Затем я начну создавать сайт.</p></div></li><li><span>4</span><div><h3>💰 Откроем магазин</h3><p>Оплатите помещение. Проверим сайт и заявки.</p></div></li></ol>
    <div class="materials"><h3>Что нужно от вас</h3><p>Тексты, фото, цены, расписание, документы — включая договор перевозки.</p></div>
-   <p class="caption">2 раунда правок: вы дважды собираете пожелания, я вношу изменения.</p><p class="pending">Почему 100% предоплата: [УТОЧНИТЬ У АВТОРА].</p>
+   <p class="caption">2 раунда правок — до запуска. Вы собираете пожелания, я вношу изменения.</p><p class="caption">Условие работы — 100% предоплата.</p>
   </div></section>
   <section class="slide renewal-slide" id="later" aria-labelledby="title-later" hidden><div class="slide-content">
-   <p class="eyebrow">Магазин уже открыт</p><h2 id="title-later" tabindex="-1">Что платить<br> <em>со 2-го года</em></h2>
-   <article class="renewal-card"><svg aria-hidden="true"><use href="#key"/></svg><div><h3>Только аренда</h3><strong>около 10 420 ₽</strong><p>в год · компаниям</p><p>420 ₽ адрес + 10 000 ₽ помещение.</p></div></article>
-   <article class="renewal-card with-admin"><svg aria-hidden="true"><use href="#admin"/></svg><div><h3>Аренда + присмотр</h3><strong>около 20 420 ₽</strong><p>в год · компании и я</p><p>Те же платежи + 10 000 ₽ мне.</p></div></article>
-   <p class="caption">Каждую услугу оплачиваете перед продлением.</p>
-   <div class="hosting-check"><p>Цена хостинга зависит от тарифа.</p><p class="pending">[ПРОВЕРИТЬ: может ли клиент найти то же дешевле]</p></div>
+   <p class="eyebrow">Ежегодные расходы</p><h2 id="title-later" tabindex="-1">Что платить<br> <em>со 2-го года</em></h2>
+   <p class="caption">Создание сайта повторно не оплачивается.</p>
+   <div class="renewal-comparison" aria-label="Сравнение ежегодных расходов">
+    <section class="renewal-line" aria-labelledby="without-support"><h3 id="without-support">Без поддержки</h3><p class="yearly-amount">около 10 420 ₽ <span>/ год</span></p><p>Компаниям: 420 ₽ за адрес + около 10 000 ₽ за размещение.</p></section>
+    <section class="renewal-line" aria-labelledby="with-support"><h3 id="with-support">С поддержкой</h3><p class="yearly-amount">около 20 420 ₽ <span>/ год</span></p><p>10 420 ₽ компаниям + 10 000 ₽ мне.</p></section>
+   </div>
+   <p>Поддержка — по желанию.</p><p class="caption">Оплата — перед продлением каждой услуги.</p><p class="caption">Цена размещения зависит от тарифа.</p>
   </div></section>
   <section class="slide support-slide" id="support" aria-labelledby="title-support" hidden><div class="slide-content">
-   <div class="support-heading"><div><p class="eyebrow">Администратор магазина</p><h2 id="title-support" tabindex="-1">Присмотр<br> <em>или переделка?</em></h2></div><svg aria-hidden="true"><use href="#admin"/></svg></div>
-   <div class="support-columns"><article><h3>Входит</h3><ul><li>Проверка заявок</li><li>Резервные копии</li><li>Технические исправления</li></ul></article><article><h3>Не входит</h3><ul><li>Смена цен</li><li>Смена текстов</li><li>Другой дизайн</li><li>Новые функции</li></ul></article></div>
-   <div class="note"><strong>Присмотр — проверять работу кассы.</strong><p>Переделка — менять вашу витрину.</p></div><p class="caption">Новые задачи оцениваю до начала работы.</p><p class="caption">Первый год присмотра включён. Отсчёт — с запуска.</p>
+   <div class="support-heading"><div><p class="eyebrow">После запуска сайта</p><h2 id="title-support" tabindex="-1">Что даёт<br> <em>поддержка</em></h2></div><svg aria-hidden="true"><use href="#admin"/></svg></div>
+   <div class="support-context"><p><strong>Первый год входит в 35 000 ₽.</strong></p><p>Отсчёт — со дня запуска сайта.</p><p>Дальше — 10 000 ₽ в год, по желанию.</p></div>
+   <div class="support-columns"><article><h3>В поддержке</h3><ul><li>Проверка отправки заявок</li><li>Резервные копии</li><li>Исправление технических сбоев</li></ul></article><article><h3>За отдельную плату</h3><ul><li>Смена цен и текстов</li><li>Новый дизайн</li><li>Новые страницы и функции</li></ul></article></div>
+   <p class="caption">Доработки после запуска не входят в поддержку.</p><p class="caption">Их стоимость согласуем до начала работы.</p>
   </div></section>
   <section class="slide extras-slide" id="extras" aria-labelledby="title-extras" hidden><div class="slide-content">
-   <p class="eyebrow">Необязательные услуги</p><h2 id="title-extras" tabindex="-1">Если захотите<br> <em>больше</em></h2><svg class="extras-art" role="img" aria-label="Мегафон для рекламы магазина"><use href="#megaphone"/></svg><p class="extras-lead">Можно позвать покупателей<br> или расширить магазин.</p><p class="caption">Эти услуги оплачиваются отдельно.</p>
-   <details id="extras-prices"><summary><span>Цены дополнительных услуг</span><b aria-hidden="true">+</b></summary><div class="extras-body"><table><caption>Реклама и изменения сайта</caption><tbody>
+   <p class="eyebrow">Необязательные услуги</p><h2 id="title-extras" tabindex="-1">Если захотите<br> <em>больше</em></h2><svg class="extras-art" role="img" aria-label="Мегафон для рекламы магазина"><use href="#megaphone"/></svg><p class="extras-lead">Можно позвать покупателей<br> или расширить магазин.</p><p class="caption">Не входят в основную стоимость сайта.</p><p class="extras-hint">Нажмите кнопку ниже: откроется список с ценами.</p>
+   <details id="extras-prices"><summary><span id="extras-toggle-label">Посмотреть услуги и цены</span><b aria-hidden="true">+</b></summary><div class="extras-body"><table><caption>Реклама и изменения сайта</caption><tbody>
     <tr><th scope="row">Настройка Яндекса<small>Мне · до настройки</small></th><td>10 000 ₽</td></tr>
     <tr><th scope="row">Тест рекламы<small>Яндексу · перед показами</small></th><td>не менее 15 000 ₽</td></tr>
     <tr><th scope="row">Ведение рекламы<small>Мне · предоплата за месяц</small></th><td>от 1 000 ₽/мес.</td></tr>
@@ -1152,17 +1033,19 @@ html:not(.js) .controls,html:not(.js) .progress {
     <tr><th scope="row">Страницы, подключения, готовые сервисы<small>За небольшую задачу</small></th><td>от 1 000 ₽</td></tr>
    </tbody></table><p class="caption">Полная новая страница оценивается отдельно.</p><p class="caption">Дополнительные работы оплачиваются полностью до начала.</p><div class="extra-total"><span>Сайт + старт рекламы</span><strong>от 70 199 ₽</strong></div><p class="caption">Включены настройка рекламы и деньги на первые показы.</p><p class="caption">Дальнейшее ведение оплачивается отдельно.</p></div></details>
   </div></section>
-  <section class="slide glossary-slide" id="glossary" aria-labelledby="title-glossary" hidden><div class="slide-content">
-   <p class="eyebrow">Без технических слов</p><h2 id="title-glossary" tabindex="-1">Простыми<br> <em>словами</em></h2><div class="glossary-art"><svg aria-hidden="true"><use href="#shop"/></svg><svg aria-hidden="true"><use href="#backup"/></svg></div>
-   <dl class="glossary"><div><dt>Домен</dt><dd>Адрес магазина в интернете: например, perevozki.ru.</dd></div><div><dt>Хостинг</dt><dd>Аренда помещения для сайта.</dd></div><div><dt>Резервная копия</dt><dd>Сохранённая версия сайта на случай сбоя.</dd></div><div><dt>Раунд правок</dt><dd>Один список пожеланий.</dd></div></dl>
-  </div></section>
   <section class="slide finish-slide" id="finish" aria-labelledby="title-finish" hidden><div class="slide-content">
-   <p class="eyebrow">Ваш следующий шаг</p><h2 id="title-finish" tabindex="-1">Обсудим детали.<br> <em>Затем откроем<br> ваш магазин.</em></h2><div class="finish-art"><svg role="img" aria-label="Готовый магазин и сообщение автору"><use href="#shop"/></svg><svg aria-hidden="true"><use href="#bubble"/></svg></div><p class="finish-copy">Нажмите «Задать вопрос».<br> Отправьте его автору сметы.</p><p class="caption">Можно уточнить цену, состав работы или порядок оплаты.</p>
+   <p class="eyebrow">Все платежи на старте</p><h2 id="title-finish" tabindex="-1">Итоговая <em>смета</em></h2>
+   <div class="finish-total"><p>Всего за первый год</p><strong><small>около</small> 45 199 ₽</strong></div>
+   <dl class="finish-items">
+    <div><dt>Создание сайта<br> и год поддержки</dt><dd>35 000 ₽</dd><dd class="payment-timing">Мне · до начала работы.</dd></div>
+    <div><dt>Свободный адрес<br> .ru/.рф на год</dt><dd>199 ₽</dd><dd class="payment-timing">Регистратору · при оформлении.</dd></div>
+    <div><dt>Размещение<br> на год</dt><dd><small>около</small> 10 000 ₽</dd><dd class="payment-timing">Компании-хостингу · перед запуском.</dd></div>
+   </dl>
+   <p class="finish-exclusions">Реклама и доработки после запуска оплачиваются отдельно.</p>
   </div></section>
  </main>
- <footer class="controls"><button id="previous" class="arrow-button" aria-label="Предыдущий слайд" disabled><svg aria-hidden="true"><use href="#arrow"/></svg></button><button id="ask-question" class="primary-button">Задать вопрос</button><button id="next" class="arrow-button" aria-label="Следующий слайд"><svg aria-hidden="true"><use href="#arrow"/></svg></button></footer>
+ <footer class="controls"><button id="previous" class="nav-button" aria-label="Предыдущий слайд" disabled><svg aria-hidden="true"><use href="#arrow"/></svg><span>Назад</span></button><button id="next" class="nav-button next-button" aria-label="Следующий слайд"><span id="next-label">Далее</span><svg aria-hidden="true"><use href="#arrow"/></svg></button></footer>
 </div>
-<dialog id="question-dialog" aria-labelledby="question-title"><div class="dialog-header"><h2 id="question-title">Что обсудим?</h2><button id="close-question" aria-label="Закрыть вопрос">×</button></div><div class="dialog-body"><p>Напишите вопрос. Скопируйте или выберите приложение для отправки.</p><label for="question-text">Ваш вопрос</label><textarea id="question-text" rows="5"></textarea><button id="share-question" class="primary-button" hidden>Поделиться вопросом</button><button id="copy-question" class="secondary-button">Скопировать вопрос</button><p id="question-status" role="status">Здесь вопрос только готовится. Получателя выбираете вы.</p></div></dialog>
 <noscript><p class="noscript-note">Все слайды показаны одной страницей. Для свайпов включите JavaScript.</p></noscript><script>(function () {
   'use strict';
   var panels = Array.from(document.querySelectorAll('.slide'));
@@ -1170,11 +1053,6 @@ html:not(.js) .controls,html:not(.js) .progress {
   var aliases = {site:'result', payment:'price', ads:'extras', services:'extras'};
   var previousButton = document.getElementById('previous');
   var nextButton = document.getElementById('next');
-  var askButton = document.getElementById('ask-question');
-  var dialog = document.getElementById('question-dialog');
-  var questionText = document.getElementById('question-text');
-  var questionStatus = document.getElementById('question-status');
-  var shareButton = document.getElementById('share-question');
   var currentIndex = 0;
   if (!panels.length) return;
   document.documentElement.classList.add('js');
@@ -1191,7 +1069,9 @@ html:not(.js) .controls,html:not(.js) .progress {
     var heading = currentPanel.querySelector('h1,h2');
     document.getElementById('slide-count').textContent = String(currentIndex + 1).padStart(2, '0') + ' / 10';
     previousButton.disabled = currentIndex === 0;
-    nextButton.disabled = currentIndex === panels.length - 1;
+    var isLastSlide = currentIndex === panels.length - 1;
+    document.getElementById('next-label').textContent = isLastSlide ? 'В начало' : 'Далее';
+    nextButton.setAttribute('aria-label', isLastSlide ? 'Вернуться к началу' : 'Следующий слайд');
     currentPanel.querySelector('.slide-content').scrollTop = 0;
     document.title = heading.textContent.replace(/\s+/g, ' ').trim() + ' · Смета на сайт';
     if (options.history && location.hash !== '#' + currentPanel.id) {
@@ -1202,9 +1082,12 @@ html:not(.js) .controls,html:not(.js) .progress {
   }
   function moveBy(direction) { activate(currentIndex + direction, {history:true, focus:true}); }
   previousButton.addEventListener('click', function () { moveBy(-1); });
-  nextButton.addEventListener('click', function () { moveBy(1); });
+  nextButton.addEventListener('click', function () {
+    if (currentIndex === panels.length - 1) activate(0, {history:true, focus:true});
+    else moveBy(1);
+  });
   document.addEventListener('keydown', function (event) {
-    if (dialog.open || event.target.closest('textarea,input,select,summary')) return;
+    if (event.target.closest('summary')) return;
     var destination = {ArrowRight:currentIndex + 1, ArrowLeft:currentIndex - 1, Home:0, End:panels.length - 1}[event.key];
     if (destination !== undefined) {
       event.preventDefault();
@@ -1231,65 +1114,15 @@ html:not(.js) .controls,html:not(.js) .progress {
 
   var extras = document.getElementById('extras-prices');
   extras.addEventListener('toggle', function () {
+    document.getElementById('extras-toggle-label').textContent = extras.open ? 'Свернуть список услуг' : 'Посмотреть услуги и цены';
     var content = extras.closest('.slide-content');
     // После раскрытия сразу показываем цены, сохраняя кнопку закрытия вверху.
     content.scrollTop = extras.open ? content.scrollTop + extras.getBoundingClientRect().top - content.getBoundingClientRect().top - 16 : 0;
   });
 
-  // Никаких выдуманных контактов: пользователь сам выбирает чат и отправляет вопрос.
-  askButton.addEventListener('click', function () {
-    if (!questionText.value.trim()) questionText.value = 'Здравствуйте! Хочу обсудить смету на сайт перевозок.\nМой вопрос: ';
-    questionStatus.textContent = 'Здесь вопрос только готовится. Получателя выбираете вы.';
-    shareButton.hidden = typeof navigator.share !== 'function';
-    dialog.showModal();
-    document.getElementById('close-question').focus();
-  });
-  document.getElementById('close-question').addEventListener('click', function () { dialog.close(); });
-  dialog.addEventListener('close', function () { askButton.focus({preventScroll:true}); });
-  dialog.addEventListener('click', function (event) {
-    if (event.target !== dialog) return;
-    var bounds = dialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
-  });
-  function readQuestion() {
-    var value = questionText.value.trim();
-    if (!value) {
-      questionStatus.textContent = 'Сначала напишите вопрос.';
-      questionText.focus();
-    }
-    return value;
-  }
-  document.getElementById('copy-question').addEventListener('click', async function () {
-    var value = readQuestion();
-    if (!value) return;
-    var copied = false;
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(value);
-        copied = true;
-      }
-    } catch (error) { /* При запрете буфера используем выделение текста. */ }
-    if (!copied) {
-      questionText.focus();
-      questionText.select();
-      try { copied = document.execCommand('copy'); } catch (error) { copied = false; }
-    }
-    questionStatus.textContent = copied ? 'Текст скопирован. Отправьте его автору сметы.' : 'Выделите текст, скопируйте и отправьте автору сметы.';
-  });
-  shareButton.addEventListener('click', async function () {
-    var value = readQuestion();
-    if (!value) return;
-    try {
-      await navigator.share({title:'Вопрос по смете на сайт', text:value});
-      questionStatus.textContent = 'Продолжите в выбранном приложении.';
-    } catch (error) {
-      questionStatus.textContent = error.name === 'AbortError' ? 'Отправка отменена. Вопрос сохранён здесь.' : 'Не удалось открыть отправку. Скопируйте вопрос кнопкой ниже.';
-    }
-  });
   function syncFromLocation() {
     var hash = location.hash.slice(1);
     var index = ids.indexOf(aliases[hash] || hash);
-    if (dialog.open) dialog.close();
     activate(index < 0 ? 0 : index);
   }
   window.addEventListener('hashchange', syncFromLocation);

@@ -22,7 +22,7 @@ body {
   display:grid;
   place-items:center
 }
-button,textarea {
+button {
   font:inherit
 }
 button {
@@ -35,7 +35,7 @@ button:disabled {
 button,summary {
   touch-action:manipulation
 }
-button:focus-visible,summary:focus-visible,textarea:focus-visible {
+button:focus-visible,summary:focus-visible {
   outline:3px solid #b95c39;
   outline-offset:3px
 }
@@ -159,15 +159,7 @@ h1:focus,h2:focus {
   font-size:16px;
   color:var(--muted)
 }
-.pending {
-  font-size:16px;
-  line-height:1.25;
-  font-weight:400;
-  color:#825128;
-  background:#f1e5c8;
-  padding:5px 7px;
-  border-radius:4px
-}
+
 .controls {
   display:flex;
   align-items:center;
@@ -177,52 +169,17 @@ h1:focus,h2:focus {
   background:var(--paper);
   border-top:1px solid var(--line)
 }
-.primary-button,.secondary-button {
-  border:0;
-  border-radius:12px;
-  min-height:48px;
-  padding:12px 14px;
-  font-weight:700;
-  line-height:1.25;
-  font-size:16px
-}
-.primary-button {
-  background:var(--green);
-  color:#fffdf5;
-  flex:1
-}
-.primary-button:hover {
-  background:#215441
-}
-.secondary-button {
-  background:#e6ecdf;
-  color:var(--ink);
-  border:1px solid #c5d1c0
-}
-.arrow-button {
-  width:48px;
-  height:48px;
-  display:grid;
-  place-items:center;
-  border:1px solid #b8c4b7;
-  background:transparent;
-  border-radius:12px;
-  color:var(--green);
-  flex:none
-}
-.arrow-button svg {
-  width:24px;
-  height:24px
-}
-.arrow-button:disabled {
-  opacity:.28
-}
+
+
+
+
+
+
+
 #previous svg {
   transform:rotate(180deg)
 }
-.primary-button[hidden] {
-  display:none
-}
+
 .cover .slide-content {
   gap:16px
 }
@@ -334,22 +291,8 @@ h1:focus,h2:focus {
   color:var(--muted);
   margin-top:4px
 }
-.split-price {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  border-top:1px solid var(--line);
-  padding-top:7px;
-  margin-top:7px;
-  line-height:1.2
-}
-.split-price strong {
-  display:block;
-  margin-top:4px;
-  padding:4px;
-  font-size:16px;
-  overflow-wrap:anywhere
-}
+
+
 .outside-money {
   color:var(--green)
 }
@@ -496,46 +439,14 @@ h1:focus,h2:focus {
 .renewal-slide h2 {
   font-size:32px
 }
-.renewal-card {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:12px;
-  background:#fffcf4;
-  border:1px solid var(--line);
-  border-radius:14px
-}
-.renewal-card svg {
-  width:52px;
-  height:52px
-}
-.renewal-card>div {
-  min-width:0
-}
-.renewal-card strong {
-  font-size:25px;
-  letter-spacing:-.6px;
-  display:block;
-  margin:5px 0;
-  white-space:nowrap
-}
-.renewal-card p+p {
-  margin-top:6px;
-  color:var(--muted)
-}
-.with-admin {
-  background:#e2e9d9;
-  border-color:#b9cbb2
-}
-.hosting-check {
-  padding-top:10px;
-  border-top:1px solid var(--line);
-  display:grid;
-  gap:5px
-}
-.hosting-check p {
-  font-size:16px
-}
+
+
+
+
+
+
+
+
 .support-heading {
   position:relative
 }
@@ -607,7 +518,7 @@ h1:focus,h2:focus {
   line-height:1.25
 }
 .extras-slide details {
-  margin-top:auto;
+  margin-top:0;
   border:1px solid #bdcbb8;
   border-radius:12px;
   background:#e7ebdf
@@ -621,7 +532,10 @@ h1:focus,h2:focus {
   gap:10px;
   cursor:pointer;
   padding:14px;
-  font-weight:700
+  font-weight:700;
+  background:var(--green);
+  color:#fffdf5;
+  border-radius:11px
 }
 .extras-slide summary::-webkit-details-marker {
   display:none
@@ -721,87 +635,20 @@ h1:focus,h2:focus {
 .finish-slide h2 {
   font-size:clamp(28px,8vw,38px)
 }
-.finish-art {
-  position:relative;
-  margin:auto 0 0
-}
-.finish-art svg:first-child {
-  width:100%;
-  height:220px
-}
-.finish-art svg:last-child {
-  position:absolute;
-  top:0;
-  right:4px;
-  width:90px;
-  height:65px
-}
-.finish-copy {
-  font-size:22px;
-  line-height:1.35
-}
-dialog {
-  padding:0;
-  border:1px solid #c9d2c0;
-  border-radius:20px;
-  background:var(--paper);
-  color:var(--ink);
-  width:min(420px,calc(100vw - 24px));
-  max-height:calc(100dvh - 32px);
-  overflow-y:auto;
-  box-shadow:0 20px 80px #18312540
-}
-dialog::backdrop {
-  background:#102e26aa;
-  backdrop-filter:blur(4px)
-}
-.dialog-header {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  padding:16px 18px;
-  border-bottom:1px solid var(--line)
-}
-.dialog-header h2 {
-  font-size:28px
-}
-.dialog-header button {
-  width:44px;
-  height:44px;
-  border:1px solid #bdcbb8;
-  background:transparent;
-  border-radius:50%;
-  font-size:30px;
-  color:var(--ink);
-  flex:none
-}
-.dialog-body {
-  padding:18px;
-  display:grid;
-  gap:14px
-}
-.dialog-body label {
-  font-weight:700
-}
-.dialog-body textarea {
-  resize:vertical;
-  width:100%;
-  min-height:120px;
-  border:1px solid #a8b9a3;
-  border-radius:9px;
-  padding:12px;
-  color:var(--ink);
-  background:#fffcf7;
-  line-height:1.4
-}
-.dialog-body button {
-  width:100%
-}
-#question-status {
-  color:var(--muted);
-  font-size:16px
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .noscript-note {
   padding:20px
 }
@@ -855,23 +702,11 @@ html:not(.js) .controls,html:not(.js) .progress {
 .work-slide .timeline {
   gap:10px
 }
-.renewal-card {
-  position:relative;
-  padding-right:10px
-}
-.renewal-card svg {
-  width:38px;
-  height:38px
-}
-.renewal-card strong {
-  font-size:24px
-}
-.renewal-card p {
-  font-size:16px
-}
-.renewal-card p+p {
-  margin-top:5px
-}
+
+
+
+
+
 .glossary-art svg:first-child {
   height:128px
 }
@@ -918,18 +753,13 @@ html:not(.js) .controls,html:not(.js) .progress {
   .money-row {
     padding:7px
   }
-  .split-price {
-    gap:5px
-  }
-  .renewal-card {
+
+.renewal-card {
     padding:10px;
     gap:7px
   }
-  .renewal-card svg {
-    width:42px;
-    height:42px
-  }
-  .renewal-card strong {
+
+.renewal-card strong {
     font-size:23px
   }
   .timeline {
@@ -958,9 +788,7 @@ html:not(.js) .controls,html:not(.js) .progress {
   .glossary-art svg:first-child {
     height:125px
   }
-  .finish-art svg:first-child {
-    height:190px
-  }
+
 }
 @media(prefers-reduced-motion:no-preference) {
   .slide:not([hidden]) {
@@ -1001,7 +829,7 @@ html:not(.js) .controls,html:not(.js) .progress {
     height:auto;
     overflow:visible
   }
-  .controls,.topbar,.progress,dialog {
+  .controls,.topbar,.progress {
     display:none
   }
   details:not([open])>*:not(summary) {
@@ -1012,21 +840,16 @@ html:not(.js) .controls,html:not(.js) .progress {
   .renewal-slide .slide-content {
     gap:9px
   }
-  .renewal-card {
-    display:block;
-    padding:10px
-  }
-  .renewal-card svg {
+
+.renewal-card svg {
     position:absolute;
     right:12px;
     top:12px;
     width:36px;
     height:36px
   }
-  .renewal-card h3 {
-    padding-right:40px
-  }
-  .renewal-card strong {
+
+.renewal-card strong {
     padding-right:30px
   }
   .support-slide .slide-content {
@@ -1057,3 +880,54 @@ html:not(.js) .controls,html:not(.js) .progress {
 .glossary-art {
   --shop-sign:hidden
 }
+
+.nav-button {
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  min-height:48px;padding:12px 16px;border:1px solid #b8c4b7;
+  border-radius:12px;background:transparent;color:var(--green);font-weight:700;
+}
+.nav-button svg {width:24px;height:24px}
+.nav-button:disabled {opacity:.28}
+.next-button {flex:1;background:var(--green);border-color:var(--green);color:#fffdf5}
+.next-button:hover {background:#215441}
+.package-includes {border-top:1px solid var(--line);margin-top:8px;padding-top:4px}
+.package-includes p:first-child {color:var(--ink);font-weight:700}
+.package-includes p+p {margin-top:7px}
+.renewal-comparison {display:grid;gap:16px;margin:4px 0}
+.renewal-line {border-top:1px solid #bac8b8;padding-top:10px;display:grid;gap:8px}
+.renewal-line h3 {font-size:18px}
+.yearly-amount {font-size:28px;font-weight:700;letter-spacing:-.6px}
+.yearly-amount span {font-size:16px;font-weight:400;letter-spacing:0;white-space:nowrap}
+.support-context {border-left:3px solid var(--green);padding-left:12px;display:grid;gap:4px}
+.support-context p {font-size:16px}
+.support-columns {margin:0}
+.support-columns h3 {min-height:40px;margin-bottom:10px}
+.support-columns ul {gap:12px}
+.extras-hint {font-size:16px;color:var(--green);margin-top:8px}
+.extras-slide summary:hover {background:#215441}
+.extras-slide details[open] summary {border-radius:11px 11px 0 0}
+.finish-slide .slide-content {gap:12px}
+.finish-total {padding:15px 18px;border-radius:14px;background:var(--ink);color:#fffdf5}
+.finish-total strong {display:block;font-size:38px;line-height:1.15;letter-spacing:-1px;margin-top:4px}
+.finish-total small,.finish-items small {font-size:16px;font-weight:400;letter-spacing:0}
+.finish-items {margin:0;display:grid}
+.finish-items>div {padding:12px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;row-gap:5px}
+.finish-items dt {font-weight:700;line-height:1.25}
+.finish-items dd {margin:0;font-size:20px;font-weight:700;align-self:center;white-space:nowrap}
+.finish-items .payment-timing {grid-column:1/-1;font-size:16px;font-weight:400;white-space:normal;color:var(--muted);line-height:1.25}
+.finish-exclusions {font-size:16px;border-left:3px solid var(--orange);padding-left:10px}
+@media(max-width:389px) {
+  .renewal-comparison {gap:16px}
+  .renewal-line {padding-top:10px;gap:6px}
+  .yearly-amount {font-size:26px}
+  .support-columns article {padding:10px}
+  .support-columns ul {gap:10px}
+  .support-slide .slide-content {gap:8px}
+  .extras-art {height:115px;margin:4px auto}
+  .finish-slide .slide-content {gap:9px}
+  .finish-total {padding:12px 14px}
+  .finish-total strong {font-size:34px}
+  .finish-items>div {padding:10px 0}
+}
+
+.renewal-slide .slide-content {gap:10px}
